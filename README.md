@@ -12,7 +12,7 @@
 
 ## Usage
 (usage)
-[application screenshot](./public/img/application-screenshot.png)
+![application screenshot](./public/img/application-screenshot.png?raw=true)
 
 ## Installation
 No installation required! Access via the deployed Heroku URL: (heroku url)
