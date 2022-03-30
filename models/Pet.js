@@ -5,7 +5,7 @@ const sequelize = require('../config/connection');
 class Pet extends Model {}
 
 // create fields/columns for Pet model
-User.init(
+Pet.init(
     {
       id: {
         type: DataTypes.INTEGER,
