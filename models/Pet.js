@@ -1,11 +1,12 @@
 const { Model, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize/types');
 const sequelize = require('../config/connection');
 
 // create our Pet model
 class Pet extends Model {}
 
 // create fields/columns for Pet model
-User.init(
+Pet.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -40,13 +41,18 @@ User.init(
         type: DataTypes.INTEGER,
         allowNull: false   
       },
+      sex: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       owner_id: {
           type: DataTypes.INTEGER,
           allowNull: true
       },
-    //   picture: {
-
-    //   }
+      pic_filename: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
     { 
       sequelize,

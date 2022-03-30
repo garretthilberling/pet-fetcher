@@ -22,7 +22,7 @@ Fave.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'post',
+                model: 'pet',
                 key: 'id'
             }
         }
