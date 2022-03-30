@@ -20,7 +20,7 @@ No installation required! Access via the deployed Heroku URL: (heroku url)
 ## Questions
 If you have any questions about this project, please contact us via GitHub: 
 * [Garrett Hilberling](https://github.com/garretthilberling)
-* [Heather Tamisea]()
+* [Heather Tamisiea](https://github.com/hdtamisiea)
 * [Aaron Navarro]()
 * [Douglas Knowles](https://github.com/Dknowles44)
 
