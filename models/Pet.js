@@ -41,10 +41,6 @@ Pet.init(
         type: DataTypes.INTEGER,
         allowNull: false   
       },
-      sex: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
       owner_id: {
           type: DataTypes.INTEGER,
           allowNull: true

@@ -17,25 +17,23 @@ router.get("/all-pets", (req, res) => {
       pets: [
           {
               id: 1,
-              bio: "Bio for first pet",
+              bio: "Male reverse brindle/black boxer born 2/12/22",
                 pet_name: "Bolt",
                 species: "Canine",
                 breed: "Boxer",
                 size: "Large",
                 age: 2,
-                sex: male,
                 owner_id: 1,
                 pic_filename: "IMG_7355.jpg"
           },
           {
             id: 2,
-            bio: "Bio for first pet",
+            bio: "Female reverse brindle/black boxer born 2/12/22",
               pet_name: "Ruth",
               species: "Canine",
               breed: "Boxer",
               size: "Large",
               age: 1,
-              sex: female,
               owner_id: 1,
               pic_filename: "IMG_7268.jpg"
         }
