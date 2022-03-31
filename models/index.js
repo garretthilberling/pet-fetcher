@@ -7,7 +7,7 @@ User.hasMany(Pet, {
 });
 
 Pet.belongsTo(User, {
-    foreignKey: 'pet_id'
+    foreignKey: 'owner_id'
 });
 
 User.belongsToMany(Pet, {
