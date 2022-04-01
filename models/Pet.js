@@ -1,5 +1,4 @@
 const { Model, DataTypes } = require('sequelize');
-const { DataTypes } = require('sequelize/types');
 const sequelize = require('../config/connection');
 
 // create our Pet model
@@ -14,16 +13,16 @@ Pet.init(
         primaryKey: true,
         autoIncrement: true
       },
+      pet_name: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       bio: { //brief bio introducing the pet
           type: DataTypes.STRING,
           allowNull: true,
           validate: {
             len: [0, 500]
           }
-      },
-      pet_name: {
-        type: DataTypes.STRING,
-        allowNull: false
       },
       species: {
         type: DataTypes.STRING,
@@ -45,10 +44,10 @@ Pet.init(
           type: DataTypes.INTEGER,
           allowNull: true
       },
-      pic_filename: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+      // pic_filename: {
+      //   type: DataTypes.STRING,
+      //   allowNull: true,
+      // },
     },
     { 
       sequelize,
