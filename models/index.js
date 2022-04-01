@@ -2,6 +2,7 @@ const User = require('./User');
 const Pet = require('./Pet');
 const Fave = require('./Fave');
 const Comment = require('./Comment')
+const Reply = require('./Reply')
 
 
 
@@ -57,4 +58,20 @@ Pet.hasMany(Comment, {
     foreignKey: 'pet_id'
 });
 
-module.exports = { User, Pet, Comment, Fave };
+Reply.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+
+Reply.belongsTo(Comment, {
+    foreignKey: 'comment_id'
+});
+
+User.hasMany(Reply, {
+    foreignKey: 'user_id'
+});
+
+Comment.hasMany(Reply, {
+    foreignKey: 'comment_id'
+});
+
+module.exports = { User, Pet, Comment, Reply, Fave };
