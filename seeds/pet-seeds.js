@@ -8,7 +8,7 @@ const petdata = [
       breed: 'husky',
       size: 'large',
       age: 2,
-      owner_id: 3
+      owner_id: 1
 
     }
 ];
