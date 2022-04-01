@@ -57,4 +57,4 @@ Pet.hasMany(Comment, {
     foreignKey: 'pet_id'
 });
 
-module.exports = { User, Pet, Fave };
+module.exports = { User, Pet, Comment, Fave };
