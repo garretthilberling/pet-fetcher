@@ -1,1 +1,7 @@
-<h1>Pet Fetcher Homepage</h1>
+<ol class="">
+  {{#each pets as |pet|}}
+  <li>
+    {{> pet-info pet}}
+  </li>
+  {{/each}}
+</ol>

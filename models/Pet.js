@@ -2,7 +2,26 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create our Pet model
-class Pet extends Model {}
+class Pet extends Model {
+  static fave(body, models) {
+      return models.Fave.create({
+          user_id: body.user_id,
+          pet_id: body.pet_id
+      }).then(() => {
+          return Pet.findOne({
+              where: {
+                  id: body.pet_id
+              },
+              attributes: [
+                  'id',
+                  'pet_name', 'bio', 'species', 'breed', 'size', 'age',
+                  'created_at',
+                  [sequelize.literal('(SELECT COUNT(*) FROM fave WHERE pet.id = fave.pet_id)'), 'fave_count']
+              ]
+          });
+      });
+  }
+}
 
 // create fields/columns for Pet model
 Pet.init(
@@ -51,7 +70,7 @@ Pet.init(
     },
     { 
       sequelize,
-      timestamps: false,
+      timestamps: true,
       freezeTableName: true,
       underscored: true,
       modelName: 'pet'

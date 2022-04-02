@@ -8,7 +8,7 @@ async function newFormHandler(event) {
     const age = document.getElementById('age').value;
     const bio = document.getElementById('bio').value;
 
-    const response = await fetch(`/api/posts`, {
+    const response = await fetch(`/api/pets`, {
       method: 'POST',
       body: JSON.stringify({
         petName, species, breed, size, age, bio

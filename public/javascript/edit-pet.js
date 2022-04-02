@@ -10,7 +10,7 @@ async function editFormHandler(event) {
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
-    const response = await fetch(`/api/posts/${id}`, {
+    const response = await fetch(`/api/pets/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
         petName, species, breed, size, age, bio
@@ -27,5 +27,5 @@ async function editFormHandler(event) {
     }
   }
   
-  document.getElementById('edit-post-form').addEventListener('submit', editFormHandler);
+  document.getElementById('edit-pet-form').addEventListener('submit', editFormHandler);
   
