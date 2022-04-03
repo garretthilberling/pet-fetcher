@@ -9,7 +9,7 @@ router.get("/", withAuth, (req, res) => {
   console.log("======================");
   Pet.findAll({
     where: {
-      owner_id: req.session.id,
+      user_id: req.session.id,
     },
     attributes: [
       "id",

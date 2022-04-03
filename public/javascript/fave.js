@@ -5,7 +5,7 @@ async function faveClickHandler(event) {
         window.location.toString().split('/').length - 1
     ];
 
-    const response = await fetch('/api/pets/faves', {
+    const response = await fetch('/api/pets/fave', {
         method: 'PUT',
         body: JSON.stringify({
             pet_id: id
