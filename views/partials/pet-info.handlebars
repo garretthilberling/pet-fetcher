@@ -1,0 +1,25 @@
+<div class="">
+  <article class="">
+        <div class="">
+            <div>
+              {{user.username}} <span class="">|</span>  
+              {{format_date created_at}}
+            </div>
+            <div>
+            </div>
+            <div>
+              <span class="">|</span><a href="/post/{{id}}" class="">{{comments.length}} {{format_plural "comment" comment.length}}</a>
+            </div>
+        </div>
+        
+        <div class="">
+          <div class="">{{pet_name}}</div>
+          <div class="">
+              <div>{{species}}</div>
+              <div>{{breed}}</div>
+              <div>{{size}}</div>
+              <div>{{age}}</div>
+          </div>
+        </div>
+      </article>
+</div>
