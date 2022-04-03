@@ -1,88 +1,102 @@
-const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { Pet, User, Comment, Fave } = require('../models');
-const withAuth = require('../utils/auth');
+const router = require("express").Router();
+const sequelize = require("../config/connection");
+const { Pet, User, Comment, Fave } = require("../models");
+const withAuth = require("../utils/auth");
 
 // get all posts for dashboard
-router.get('/', withAuth, (req, res) => {
+router.get("/", withAuth, (req, res) => {
   console.log(req.session);
-  console.log('======================');
+  console.log("======================");
   Pet.findAll({
     where: {
-      user_id: req.session.user_id
+      owner_id: req.session.owner_id,
     },
     attributes: [
-      'id',
-      'pet_name',
-      'species',
-      'breed',
-      'size',
-      'age',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE pet.id = fave.pet_id)'), 'fave_count']
+      "id",
+      "pet_name",
+      "species",
+      "breed",
+      "size",
+      "age",
+      "created_at",
+      [
+        sequelize.literal(
+          "(SELECT COUNT(*) FROM fave WHERE pet.id = fave.pet_id)"
+        ),
+        "fave_count",
+      ],
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'pet_id', 'user_id', 'created_at'],
+        attributes: ["id", "comment_text", "pet_id", "user_id", "created_at"],
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ["username"],
+        },
       },
       {
         model: User,
-        attributes: ['username']
-      }
-    ]
+        attributes: ["username"],
+      },
+    ],
   })
-    .then(dbPetData => {
-      const pets = dbPetData.map(pet => pet.get({ plain: true }));
-      res.render('dashboard', { pets, loggedIn: true });
+    .then((dbPetData) => {
+      const pets = dbPetData.map((pet) => pet.get({ plain: true }));
+      res.render("dashboard", { pets, loggedIn: true });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
 
-router.get('/edit/:id', withAuth, (req, res) => {
+router.get("/edit/:id", withAuth, (req, res) => {
   Pet.findByPk(req.params.id, {
     attributes: [
-      'id',
-      'post_url',
-      'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM fave WHERE pet.id = fave.pet_id)'), 'fave_count']
+      "id",
+      "pet_name",
+      "bio",
+      "species",
+      "breed",
+      "size",
+      "age",
+      "created_at",
+      [
+        sequelize.literal(
+          "(SELECT COUNT(*) FROM fave WHERE pet.id = fave.pet_id)"
+        ),
+        "fave_count",
+      ],
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'pet_id', 'user_id', 'created_at'],
+        attributes: ["id", "comment_text", "pet_id", "user_id", "created_at"],
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ["username"],
+        },
       },
       {
         model: User,
-        attributes: ['username']
-      }
-    ]
+        attributes: ["username"],
+      },
+    ],
   })
-    .then(dbPetData => {
+    .then((dbPetData) => {
       if (dbPetData) {
         const pet = dbPetData.get({ plain: true });
-        
-        res.render('edit-pet', {
-            pet,
-            loggedIn: true
+
+        res.render("edit-pet", {
+          pet,
+          loggedIn: true,
         });
       } else {
         res.status(404).end();
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).json(err);
     });
 });

@@ -25,6 +25,17 @@
             <label for="age">Bio</label>
             <textarea id="age" name="age"></textarea>
         </div>
+        <div class="js-upload uk-placeholder uk-text-center">
+                <span uk-icon="icon: cloud-upload"></span>
+                <span class="uk-text-middle">Attach binaries by dropping them here or</span>
+            <div uk-form-custom>
+                <input type="file" multiple>
+                <span class="uk-link">selecting one</span>
+            </div>
+        </div>
+
+<progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
+
         <button type="submit" class="">Create</button>
     </form>
 </section>
@@ -44,4 +55,5 @@
 {{/if}}
 
 <script src="/javascript/add-pet.js"></script>
+<script src="/javascript/upload-img.js"></script>
 <script src="/javascript/convertAPI.js"></script>
