@@ -13,6 +13,7 @@ router.get("/", (req, res) => {
       "breed",
       "size",
       "age",
+      "pic_filename",
       "created_at"
     ],
     include: [
@@ -59,6 +60,7 @@ router.get("/pet/:id", (req, res) => {
       "breed",
       "size",
       "age",
+      "pic_filename",
       "created_at",
     ],
     include: [
@@ -69,6 +71,10 @@ router.get("/pet/:id", (req, res) => {
           model: User,
           attributes: ['username']
         }
+      },
+      {
+        model: User,
+        attributes: ["username"],
       },
     ],
   })

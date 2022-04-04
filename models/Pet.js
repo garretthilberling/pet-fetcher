@@ -63,10 +63,10 @@ Pet.init(
           type: DataTypes.INTEGER,
           allowNull: true
       },
-      // pic_filename: {
-      //   type: DataTypes.STRING,
-      //   allowNull: true,
-      // },
+      pic_filename: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
     },
     { 
       sequelize,
