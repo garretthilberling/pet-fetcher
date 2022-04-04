@@ -69,6 +69,7 @@ router.post('/', withAuth, (req, res) => {
         breed: req.body.breed,
         size: req.body.size,
         age: req.body.age,
+        pic_filename: req.body.pic_filename,
         user_id: req.session.user_id
     })
     .then(dbPetData => res.json(dbPetData))

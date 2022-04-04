@@ -7,11 +7,12 @@ async function newFormHandler(event) {
     const size = document.getElementById('size').value;
     const age = document.getElementById('age').value;
     const bio = document.getElementById('bio').value;
+    const pic_filename = document.getElementById("pic_filename").value;
 
     const response = await fetch(`/api/pets`, {
       method: 'POST',
       body: JSON.stringify({
-        pet_name, bio, species, breed, size, age, 
+        pet_name, bio, species, breed, size, age, pic_filename
       }),
       headers: {
         'Content-Type': 'application/json'
