@@ -1,7 +1,7 @@
 async function newFormHandler(event) {
     event.preventDefault();
   
-    const petName = document.getElementById('pet-name').value;
+    const pet_name = document.getElementById('pet-name').value;
     const species = document.getElementById('species').value;
     const breed = document.getElementById('breed').value;
     const size = document.getElementById('size').value;
@@ -11,7 +11,7 @@ async function newFormHandler(event) {
     const response = await fetch(`/api/pets`, {
       method: 'POST',
       body: JSON.stringify({
-        petName, species, breed, size, age, bio
+        pet_name, bio, species, breed, size, age, 
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -19,7 +19,7 @@ async function newFormHandler(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }

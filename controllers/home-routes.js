@@ -8,6 +8,7 @@ router.get("/", (req, res) => {
     attributes: [
       "id",
       "pet_name",
+      "bio",
       "species",
       "breed",
       "size",
@@ -53,6 +54,7 @@ router.get("/pet/:id", (req, res) => {
     attributes: [
       "id",
       "pet_name",
+      "bio",
       "species",
       "breed",
       "size",

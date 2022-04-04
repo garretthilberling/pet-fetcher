@@ -60,7 +60,7 @@ router.post('/', (req, res) => {
     phone: req.body.phone,
     state: req.body.state,
     city: req.body.city,
-    password: req.body.password,
+    password: req.body.password
   })
     .then(dbUserData => {
       req.session.save(() => {

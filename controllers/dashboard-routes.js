@@ -3,17 +3,18 @@ const sequelize = require("../config/connection");
 const { Pet, User, Comment, Fave } = require("../models");
 const withAuth = require("../utils/auth");
 
-// get all posts for dashboard
+// get all pets for dashboard
 router.get("/", withAuth, (req, res) => {
   console.log(req.session);
   console.log("======================");
   Pet.findAll({
     where: {
-      owner_id: req.session.owner_id,
+      user_id: req.session.id,
     },
     attributes: [
       "id",
       "pet_name",
+      "bio",
       "species",
       "breed",
       "size",

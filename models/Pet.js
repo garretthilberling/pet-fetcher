@@ -61,10 +61,10 @@ Pet.init(
         allowNull: false
       },
       age: { 
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING, //select puppy/teen/old pupper
         allowNull: false   
       },
-      owner_id: {
+      user_id: {
           type: DataTypes.INTEGER,
           allowNull: false
       },
@@ -75,7 +75,6 @@ Pet.init(
     },
     { 
       sequelize,
-      timestamps: true,
       freezeTableName: true,
       underscored: true,
       modelName: 'pet'
