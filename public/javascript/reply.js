@@ -28,4 +28,4 @@ async function replyFormHandler(event) {
   }
   
 
-document.getElementById('reply-form').addEventListener('submit', commentFormHandler);
+document.getElementById('reply-form').addEventListener('submit', replyFormHandler);

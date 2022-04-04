@@ -1,9 +1,11 @@
 const router = require('express').Router();
-const { User, Pet, Comment } = require('../../models');
+const { User, Pet, Comment, Fave } = require('../../models');
+const withAuth = require('../../utils/auth');
+
 
 router.get('/', (req, res) => {
     Pet.findAll({
-        attributes: ['id', 'pet_name', 'bio', 'species', 'breed', 'size', 'age', 'owner_id', 'created_at'],
+        attributes: ['id', 'pet_name', 'bio', 'species', 'breed', 'size', 'age', 'user_id', 'created_at'],
         include: [
             {
                 model: Comment,
@@ -30,7 +32,7 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id', 'pet_name', 'bio', 'species', 'breed', 'size', 'age', 'owner_id', 'created_at'],
+        attributes: ['id', 'pet_name', 'bio', 'species', 'breed', 'size', 'age', 'user_id', 'created_at'],
         include: [
             {
                 model: Comment,
@@ -59,15 +61,15 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Pet.create({
         pet_name: req.body.pet_name,
         bio: req.body.bio,
-        species: req.session.user_id,
+        species: req.body.species,
         breed: req.body.breed,
         size: req.body.size,
         age: req.body.age,
-        owner_id: req.body.owner_id
+        user_id: req.session.user_id
     })
     .then(dbPetData => res.json(dbPetData))
     .catch(err => {
@@ -85,7 +87,7 @@ router.put('/:id', (req, res) => {
             breed: req.body.breed,
             size: req.body.size,
             age: req.body.age,
-            owner_id: req.body.owner_id
+            user_id: req.body.user_id
         },
         {
             where: {
@@ -104,6 +106,18 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+router.put('/fave', withAuth, (req, res) => {
+    if (req.session) {
+      // custom static method created in models/Post.js
+      Pet.fave({ ...req.body, user_id: req.session.user_id }, { Fave, Comment, User })
+        .then(updatedFaveData => res.json(updatedFaveData))
+        .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+    }
+  });
 
 router.delete('/:id', (req, res) => {
     Pet.destroy({
