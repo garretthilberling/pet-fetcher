@@ -22,14 +22,14 @@
             <label for="bio">Bio</label>
             <textarea id="bio" name="age"></textarea>
         </div>
-        <div class="js-upload uk-placeholder uk-text-center">
+        <div class="js-upload uk-placeholder uk-text-center bg-gradient-to-r from-violet-600 to-indigo-700 text-indigo-50">
                 <span uk-icon="icon: cloud-upload"></span>
                 <span class="uk-text-middle">Attach binaries by dropping them here or</span>
             <div uk-form-custom>
                 <form encType="multipart/form-data" action="">
-                    <input id="img-input" onChange={this.addFile.bind(this)} type="file" multiple />
+                    <input id="img-input" type="file" multiple />
                 </form>
-                <span class="uk-link">selecting one</span>
+                <span class="uk-link text-sky-500">selecting one</span>
             </div>
         </div>
 

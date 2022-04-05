@@ -4,14 +4,15 @@ var convertapi = require('convertapi')(process.env.API_SECRET);
 require('dotenv').config();
 
 router.post('/', (req, res) => {
-
+console.log(req.body);
   convertapi.convert('svg', {
     File: req.body,
   }, 'jpg')
   
-  .then(function(res) {
+  .then(function(send) {
     // res.saveFiles('./public/img/test.svg');
-    res.saveFiles('./public/img/test.svg');
+    send.saveFiles('./public/img/test.svg');
+    console.log(send)
   })
 });
 

@@ -1,33 +1,43 @@
 const img = document.getElementById("img-input");
+// const fs = require('fs');
 
-async function uploadImgHandler(event) {
-  event.preventDefault();
-  const formData = new FormData();
-  formData.append("file", img.files[0]);
-  console.log(img.files[0]);
-  console.log(formData);
+// function upload (file) {
+//   return new Promise((resolve, reject) => {
+//       fs.writeFile(`../img/${file.name}.jpg`, file, err => {
+//         if (err) {
+//           reject(err);
+//           return;
+//         } else {
+//           console.log('');
+//           console.log('file successfully uploaded');
+//         }
+    
+//         resolve({
+//           ok: true,
+//           message: 'File created!'
+//         });
+//       });
+//   })
+//   // .then(() => {convert(file);})
+// };
 
-  await fetch("/api/convertapi", {
-    method: "POST",
-    headers: { 'Content-Type': 'multipart/form-data' },
-    body: img.files[0],
+async function convert () {
+  console.log(JSON.stringify(img.value));
+  console.dir(img);
+  console.log(typeof img.value);
+  var formData = new FormData();
+  formData.append('image', img.files[0])
+
+  await fetch('/api/convertapi', {
+    method: 'POST',
+    // headers: {
+    //   'Content-Type': 'image/jpg',
+    // },
+    body: '../img/test.jpg'
   })
-  .then(response => {
-    response.json()
-  })
-  .then(data => {
-    this.setState({images: data.images, isLoading: false});
-    this.props.updateImages(data.images);
-  })
-  .catch(err => this.setState({err, isLoading: false}))
+  .then(res => res.json())
+  .then(success => console.log(success))
+  .catch(err => console.log(err));
+};
 
-  // if (response.ok) {
-  //   document.location.replace("/");
-  // } else {
-  //   alert(response.statusText);
-  // }
-}
-
-document
-  .getElementById("new-pet-form")
-  .addEventListener("submit", uploadImgHandler);
+img.addEventListener('change', convert);
