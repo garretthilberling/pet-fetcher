@@ -2,37 +2,43 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pet Fetcher!</title>
-  <link rel="stylesheet" type="text/css" href="/css/jass.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <title>Pet&#128062;Fetcher</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.7/dist/css/uikit.min.css" />
+  <link rel="stylesheet" href="/stylesheets/dist/output.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<body>
-  <header>
-    <h1>Welcome to Pet Fetcher!</h1>
-    <h3>Where wonderful homes await extraordinary pets!</h3>
-  </header>
-  <nav>
-    <a href="/">Home</a>
-    {{#if loggedIn}}
-    <button id="logout" class="btn-no-style">Logout</button>
-    {{else}}
-    <a href="/login">Login</a>
-    {{/if}}
-  </nav>
-  <main>
-    <aside>
-      <h2>Enjoy the experience!</h2>
-    </aside>
-    <div class="gallery">
-      {{{body}}}
-    </div>
-  </main>
-  {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+<body class="h-screen bg-gradient-to-b from-indigo-900 to-violet-900">
+  <div class="">
+    <header class="flex flex-row items-center justify-between flex-wrap p-5 py-10 bg-gradient-to-b from-violet-900 to-transparent">
+      <h1>
+        <a class="text-indigo-50 text-2xl hover:text-indigo-200 hover:no-underline" href="/">Pet<i class="px-1 fa-solid fa-paw text-violet-400"></i>Fetcher</a>
+      </h1>
+      <nav class="text-indigo-50">
+        {{#if loggedIn}}
+        <a class="px-1 hover:text-indigo-200 hover:no-underline" href="/dashboard">dashboard</a>
+        <button id="logout"  class="px-1 hover:text-indigo-200">logout</button>
+        {{else}}
+        <a class="px-1 hover:text-indigo-200 hover:no-underline" href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+    <footer class="flex justify-center align-baseline bg-gradient-to-t from-violet-700 text-indigo-50 pb-4 pt-8 mt-6 text-xl">
+      Thanks for visiting!
+    </footer>
+  </div>
+
+{{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+{{/if}}
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.13.7/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.13.7/dist/js/uikit-icons.min.js"></script>
 </body>
 
 </html>

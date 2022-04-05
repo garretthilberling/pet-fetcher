@@ -1,0 +1,14 @@
+<div>
+    {{#each this}}
+    <section  class="my-2 py-2 bg-sky-100 rounded-lg border-2 border-sky-300">
+        <div class="">
+            <div class="px-4">
+                <span class="text-sky-600 font-semibold">{{user.username}}</span> on {{format_date created_at}}:
+            </div>
+            <div class="pl-6 pr-4">
+                {{comment_text}}
+            </div>
+        </div>
+    </section>
+    {{/each}}
+</div>

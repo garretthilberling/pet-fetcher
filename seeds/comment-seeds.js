@@ -2,12 +2,6 @@ const { Comment } = require('../models');
 
 const commentdata = [
   {
-<<<<<<< HEAD
-    comment_text: 'This is a good dog',
-    user_id: 1,
-    pet_id: 1
-  }
-=======
     comment_text: 'This one is my favorite!!!',
     user_id: 1,
     pet_id: 1
@@ -28,7 +22,6 @@ const commentdata = [
     pet_id: 2
   },
 
->>>>>>> main
 ];
 
 const seedComments = () => Comment.bulkCreate(commentdata);

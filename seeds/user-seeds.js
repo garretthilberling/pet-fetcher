@@ -6,13 +6,10 @@ const userdata = [
      username: 'Pet Fetcher',
      email: 'petfetcher@yahoo.com',
      phone: 1234567891,
-     state: 'New York',
+     state: 'NY',
      city: 'New York',
      password: 'pass'
 
-<<<<<<< HEAD
-    }
-=======
     },
     {
         username: 'Naseem Gabriel',
@@ -59,7 +56,6 @@ const userdata = [
         password: 'pass'
    
        }
->>>>>>> main
 ];
 
 const seedUsers = () => User.bulkCreate(userdata, {individualHooks: true});

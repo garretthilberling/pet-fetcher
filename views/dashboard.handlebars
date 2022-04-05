@@ -1,0 +1,46 @@
+<section>
+    <h2>Create New Post</h2>
+
+    <form id="new-pet-form">
+        <div>
+            <label for="pet_name">Name</label>
+            <input type="text" id="pet-name" name="pet-name"/>
+        </div>
+        <div>
+            <label for="species">Species</label>
+            <input id="species" name="species"/>
+
+            <label for="breed">Breed</label>
+            <input id="breed" name="breed"/>
+
+            <label for="size">Size</label>
+            <input id="size" name="size"/>
+
+            <label for="age">Age</label>
+            <input id="age" name="age"/>
+
+            <label for="pic_filename">Image URL</label>
+            <input id="pic_filename" name="pic_filename"/>
+
+            <label for="bio">Bio</label>
+            <textarea id="bio" name="age"></textarea>
+        </div>
+        <button type="submit" class="">Create</button>
+    </form>
+</section>
+
+{{#if pets.length}}
+<section>
+    <h2>Your Listed Pets</h2>
+    <ol>
+        {{#each pets as |pet|}}
+        <li>
+            {{> pet-info pet}}
+            <a href="/dashboard/edit/{{pet.id}}" class="">Edit post</a>
+        </li>
+        {{/each}}
+    </ol>
+</section>
+{{/if}}
+
+<script src="/javascript/add-pet.js"></script>

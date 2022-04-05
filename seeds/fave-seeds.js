@@ -4,9 +4,6 @@ const favedata = [
   {
     user_id: 1,
     pet_id: 1
-<<<<<<< HEAD
-  }
-=======
   },
   {
     user_id: 2,
@@ -25,7 +22,6 @@ const favedata = [
     pet_id: 3
   },
   
->>>>>>> main
 ];
 
 const seedFaves = () => Fave.bulkCreate(favedata);
