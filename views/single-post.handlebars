@@ -1,0 +1,21 @@
+{{> pet-info pet}}
+
+{{#if loggedIn}}
+<form id="comment-form">
+    <div>
+        <textarea id="comment-body"></textarea>
+    </div>
+
+    <div>
+        <button type="submit">add comment</button>
+        <button type="button" id="fave-btn">fave</button>
+    </div>
+</form>
+{{/if}}
+
+{{> comments pet.comments}}
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+<script src="/javascript/fave.js"></script>
+{{/if}}

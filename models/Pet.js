@@ -1,9 +1,27 @@
 const { Model, DataTypes } = require('sequelize');
-const { DataTypes } = require('sequelize/types');
 const sequelize = require('../config/connection');
 
 // create our Pet model
-class Pet extends Model {}
+class Pet extends Model {
+  static fave(body, models) {
+      return models.Fave.create({
+          user_id: body.user_id,
+          pet_id: body.pet_id
+      }).then(() => {
+          return Pet.findOne({
+              where: {
+                  id: body.pet_id
+              },
+              attributes: [
+                  'id',
+                  'pet_name', 'bio', 'species', 'breed', 'size', 'age',
+                  'created_at',
+                  [sequelize.literal('(SELECT COUNT(*) FROM fave WHERE pet.id = fave.pet_id)'), 'fave_count']
+              ]
+          });
+      });
+  }
+}
 
 // create fields/columns for Pet model
 Pet.init(
@@ -14,16 +32,16 @@ Pet.init(
         primaryKey: true,
         autoIncrement: true
       },
+      pet_name: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       bio: { //brief bio introducing the pet
           type: DataTypes.STRING,
           allowNull: true,
           validate: {
             len: [0, 500]
           }
-      },
-      pet_name: {
-        type: DataTypes.STRING,
-        allowNull: false
       },
       species: {
         type: DataTypes.STRING,
@@ -38,21 +56,20 @@ Pet.init(
         allowNull: false
       },
       age: { 
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING, //select puppy/teen/old pupper
         allowNull: false   
       },
-      owner_id: {
+      user_id: {
           type: DataTypes.INTEGER,
           allowNull: true
       },
       pic_filename: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
     },
     { 
       sequelize,
-      timestamps: false,
       freezeTableName: true,
       underscored: true,
       modelName: 'pet'
