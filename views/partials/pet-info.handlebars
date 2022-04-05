@@ -1,25 +1,41 @@
-<div class="">
-  <article class="">
-        <div class="">
-            <div>
-              {{user.username}} <span class="">|</span>  
-              {{format_date created_at}}
-            </div>
-            <div>
-            </div>
-            <div>
-              <span class="">|</span><a href="/post/{{id}}" class="">{{comments.length}} {{format_plural "comment" comment.length}}</a>
+<div
+  class="uk-height-large rounded-t-lg uk-card uk-card-default uk-card-body text-indigo-50 bg-gradient-to-b from-indigo-500 to-indigo-800 mx-3"
+>
+{{!-- <img class="uk-position-center uk-preserve-width uk-responsive-height uk-object-scale-down" src="/images/IMG_7268.jpg" width="auto" height="auto" /> --}}
+<div class="uk-transition-toggle" tabindex="0">
+            <img class="uk-position-center uk-preserve-width uk-responsive-height uk-object-scale-down" src={{pic_filename}} width="auto" height="auto" alt="">
+            <div class="uk-transition-slide-left uk-position-top uk-overlay uk-overlay-default">
+                <p class="uk-h4 uk-margin-remove">{{bio}}</p>
             </div>
         </div>
-        
-        <div class="">
-          <div class="">{{pet_name}}</div>
-          <div class="">
-              <div>{{species}}</div>
-              <div>{{breed}}</div>
-              <div>{{size}}</div>
-              <div>{{age}}</div>
-          </div>
-        </div>
-      </article>
+  <div class="uk-position-bottom bg-indigo-700 p-8">
+    <div class="flex flex-row items-center justify-between flex-wrap">
+      <div class="card-title "> 
+          <a href="/pet/{{id}}" class="font-semibold text-sky-500 hover:text-sky-400 hover:no-underline text-xl">
+            {{user.username}}
+          </a>
+        <span class="px-1 text-indigo-400">|</span>
+        {{format_date created_at}}
+      </div>
+      <div>
+        <a
+          href="/pet/{{id}}"
+          class="hover:text-indigo-200 hover:no-underline" uk-icon="icon: comments; ratio: 1.5"></a>
+      </div>
+    </div>
+
+    <div class="">
+      <div class=""><span class="font-semibold text-blue-300">Name:
+        </span>{{pet_name}}</div>
+      <div class="uk-grid-small" uk-grid>
+        <div><span class="font-semibold text-blue-300">Species:
+          </span>{{species}}</div>
+        <div><span class="font-semibold text-blue-300">Breed:
+          </span>{{breed}}</div>
+        <div><span class="font-semibold text-blue-300">Size:
+          </span>{{size}}</div>
+        <div><span class="font-semibold text-blue-300">Age: </span>{{age}}</div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -7,8 +7,9 @@ const petdata = [
       species: 'dog',
       breed: 'husky',
       size: 'large',
-      age: 2,
-      owner_id: 1
+      age: 'adult',
+      pic_filename: "https://www.petpaw.com.au/wp-content/uploads/2014/04/Boxer-Dog-3.jpg",
+      user_id: 1
 
     }
 ];

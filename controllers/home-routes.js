@@ -8,10 +8,12 @@ router.get("/", (req, res) => {
     attributes: [
       "id",
       "pet_name",
+      "bio",
       "species",
       "breed",
       "size",
       "age",
+      "pic_filename",
       "created_at"
     ],
     include: [
@@ -53,10 +55,12 @@ router.get("/pet/:id", (req, res) => {
     attributes: [
       "id",
       "pet_name",
+      "bio",
       "species",
       "breed",
       "size",
       "age",
+      "pic_filename",
       "created_at",
     ],
     include: [
@@ -67,6 +71,10 @@ router.get("/pet/:id", (req, res) => {
           model: User,
           attributes: ['username']
         }
+      },
+      {
+        model: User,
+        attributes: ["username"],
       },
     ],
   })
