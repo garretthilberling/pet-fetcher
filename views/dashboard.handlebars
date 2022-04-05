@@ -26,7 +26,9 @@
                 <span uk-icon="icon: cloud-upload"></span>
                 <span class="uk-text-middle">Attach binaries by dropping them here or</span>
             <div uk-form-custom>
-                <input type="file" multiple>
+                <form encType="multipart/form-data" action="">
+                    <input id="img-input" onChange={this.addFile.bind(this)} type="file" multiple />
+                </form>
                 <span class="uk-link">selecting one</span>
             </div>
         </div>
@@ -52,5 +54,4 @@
 {{/if}}
 
 <script src="/javascript/add-pet.js"></script>
-<script src="/javascript/upload-img.js"></script>
 <script src="/javascript/convertAPI.js"></script>

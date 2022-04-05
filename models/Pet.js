@@ -20,6 +20,8 @@ class Pet extends Model {
                   'breed', 
                   'size', 
                   'age',
+                  'user_id',
+                  'pic_filename',
                   'created_at',
                   [sequelize.literal('(SELECT COUNT(*) FROM fave WHERE pet.id = fave.pet_id)'), 'fave_count']
               ]

@@ -19,7 +19,8 @@ async function newFormHandler(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/');
+      // document.location.replace('/');
+      console.log('pet added')
     } else {
       alert(response.statusText);
     }
