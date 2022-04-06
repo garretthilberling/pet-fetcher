@@ -1,32 +1,55 @@
-<section>
-    <h2>Create New Post</h2>
+<section class="uk-flex uk-flex-center">
+    
+    <div>
+    <form class="" id="new-pet-form">
+        
+        <div class="input-padding form-background uk-margin-small-top">
 
-    <form id="new-pet-form">
-        <div>
-            <label for="pet_name">Name</label>
-            <input type="text" id="pet-name" name="pet-name"/>
+            <div>
+    <h2 class="uk-text-large uk-text-muted">Create New Post</h2>
+    </div>
+
+            <div class="">
+            <label for="pet_name"></label>
+            <input class="dashboard-inputs" type="text" placeholder="Pet Name" id="pet-name" name="pet-name"/>
+            </div>    
+
+            <div>
+            <label for="species"></label>
+            <input class="dashboard-inputs" placeholder="Species" id="species" name="species"/>
+            </div>
+            
+            <div class="uk-margin-small-top">
+            <label for="breed"></label>
+            <input class="dashboard-inputs" placeholder="Breed" id="breed" name="breed"/>
+            </div>
+            
+            <div class="uk-margin-small-top">
+            <label for="size"></label>
+            <input class="dashboard-inputs" placeholder="Size" id="size" name="size"/>
+            </div>
+            
+            <div class="uk-margin-small-top">
+            <label for="age"></label>
+            <input class="dashboard-inputs" placeholder="Age" id="age" name="age"/>
+            </div>
+            
+            <div class="uk-margin-small-top">
+            <label for="pic_filename"></label>
+            <input class="dashboard-inputs" placeholder="Image URL" id="pic_filename" name="pic_filename"/>
+            </div>
+
+            <div class="uk-margin-small-top">
+            <label for="bio"></label>
+            <textarea class="dashboard-inputs" placeholder="Bio" id="bio" name="age"></textarea>
+            </div>
+
+            <button class="uk-button uk-button-secondary uk-width-1-1" type="submit" class="">Create</button>
         </div>
-        <div>
-            <label for="species">Species</label>
-            <input id="species" name="species"/>
-
-            <label for="breed">Breed</label>
-            <input id="breed" name="breed"/>
-
-            <label for="size">Size</label>
-            <input id="size" name="size"/>
-
-            <label for="age">Age</label>
-            <input id="age" name="age"/>
-
-            <label for="pic_filename">Image URL</label>
-            <input id="pic_filename" name="pic_filename"/>
-
-            <label for="bio">Bio</label>
-            <textarea id="bio" name="age"></textarea>
-        </div>
-        <button type="submit" class="">Create</button>
+        
+        
     </form>
+    </div>
 </section>
 
 {{#if pets.length}}
