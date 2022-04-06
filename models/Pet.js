@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 // create our Pet model
 class Pet extends Model {
-  static fave(body, models) {
+  static addFave(body, models) {
       return models.Fave.create({
           user_id: body.user_id,
           pet_id: body.pet_id
