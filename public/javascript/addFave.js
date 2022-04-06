@@ -1,11 +1,11 @@
-async function faveClickHandler(event) {
+async function addFaveClickHandler(event) {
     event.preventDefault();
 
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
 
-    const response = await fetch('/api/pets/fave', {
+    const response = await fetch('/api/pets/addFave', {
         method: 'PUT',
         body: JSON.stringify({
             pet_id: id
@@ -22,4 +22,4 @@ async function faveClickHandler(event) {
     }
 }
 
-document.getElementById('fave-btn').addEventListener('click', faveClickHandler);
+document.getElementById('addFave-btn').addEventListener('click', addFaveClickHandler);
