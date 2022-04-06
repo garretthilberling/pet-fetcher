@@ -33,7 +33,7 @@ async function convert () {
     // headers: {
     //   'Content-Type': 'image/jpg',
     // },
-    body: '../img/test.jpg'
+    body: ''
   })
   .then(res => res.json())
   .then(success => console.log(success))
