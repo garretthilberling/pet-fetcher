@@ -1,11 +1,15 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { User, Pet, Comment, Fave } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
 router.get('/', (req, res) => {
+    console.log('======================');
     Pet.findAll({
-        attributes: ['id', 'pet_name', 'bio', 'species', 'breed', 'size', 'age', 'user_id', 'created_at'],
+        attributes: ['id', 'pet_name', 'bio', 'species', 'breed', 'size', 'age', 'user_id', 'created_at',
+        [sequelize.literal('(SELECT COUNT(*) FROM fave WHERE pet.id = fave.pet_id)'), 'fave_count']
+    ],
         include: [
             {
                 model: Comment,
@@ -23,6 +27,7 @@ router.get('/', (req, res) => {
     })
     .then(dbPetData => res.json(dbPetData))
     .catch(err => {
+        console.log(err);
         res.status(500).json(err);
     });
 });
@@ -32,7 +37,9 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id', 'pet_name', 'bio', 'species', 'breed', 'size', 'age', 'user_id', 'created_at'],
+        attributes: ['id', 'pet_name', 'bio', 'species', 'breed', 'size', 'age', 'user_id', 'created_at',
+        [sequelize.literal('(SELECT COUNT(*) FROM fave WHERE pet.id = fave.pet_id)'), 'fave_count']
+    ],
         include: [
             {
                 model: Comment,
@@ -79,6 +86,16 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
+router.put('/addFave', withAuth, (req, res) => {
+    // custom static method created in models/Post.js
+    Pet.addFave({ ...req.body, user_id: req.session.user_id }, { Pet, Comment, User })
+      .then(updatedFaveData => res.json(updatedFaveData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
 router.put('/:id', (req, res) => {
     Pet.update(
         {
@@ -107,18 +124,6 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
-
-router.put('/fave', withAuth, (req, res) => {
-    if (req.session) {
-      // custom static method created in models/Post.js
-      Pet.fave({ ...req.body, user_id: req.session.user_id }, { Fave, Comment, User })
-        .then(updatedFaveData => res.json(updatedFaveData))
-        .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-        });
-    }
-  });
 
 router.delete('/:id', (req, res) => {
     Pet.destroy({
