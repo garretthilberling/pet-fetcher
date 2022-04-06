@@ -64,18 +64,25 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-    const algorithm = 'aes-128-cbc';
-    const key = crypto.randomBytes(32);
-    const iv = crypto.randomBytes(16);
-    const encrypt = (input) => {
-        let cipher = crypto.createCipheriv(algorithm, Buffer.from(key), iv);
-        let encrypted = cipher.update(input);
-        encrypted = Buffer.concat([encrypted, cipher.final()]);
+    // const algorithm = 'aes-128-cbc';
+    // const key = crypto.randomBytes(32);
+    // const iv = crypto.randomBytes(16);
+    // const encrypt = (input) => {
+    //     let cipher = crypto.createCipheriv(algorithm, Buffer.from(key), iv);
+    //     let encrypted = cipher.update(input);
+    //     encrypted = Buffer.concat([encrypted, cipher.final()]);
 
-        return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex') };
-    } 
+    //     return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex') };
+    // } 
 
-    var img = encrypt(req.body.pic_filename).encryptedData;
+    function encrypt(text) {
+        var cipher = crypto.createCipher('aes-128-cbc', req.body.pic_filename);
+        var crypted = cipher.update(text, 'utf8', 'hex');
+        crypted += cipher.final('hex');
+        return crypted;
+    }
+
+    var img = encrypt(req.body.pic_filename);
     console.log('');
     console.log('');
     console.log('');
