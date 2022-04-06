@@ -3,12 +3,12 @@ const { User, Pet } = require('../models');
 
 const userdata = [
     {
-     username: 'Pet Fetcher',
-     email: 'petfetcher@yahoo.com',
-     phone: 1234567891,
-     state: 'NY',
-     city: 'New York',
-     password: 'pass'
+        username: 'Pet Fetcher',
+        email: 'petfetcher@yahoo.com',
+        phone: 1234567891,
+        state: 'NY',
+        city: 'New York',
+        password: 'pass'
 
     },
     {
@@ -19,8 +19,8 @@ const userdata = [
         city: 'Chicago',
         password: 'pass'
    
-       },
-       {
+    },
+    {
         username: 'Ema Abascal',
         email: 'Ema@yahoo.com',
         phone: 1234567891,
@@ -28,8 +28,8 @@ const userdata = [
         city: 'Chicago',
         password: 'pass'
    
-       },
-       {
+    },
+    {
         username: 'Albert Lawson',
         email: 'Albert@yahoo.com',
         phone: 1234567891,
@@ -37,8 +37,8 @@ const userdata = [
         city: 'Tampa',
         password: 'pass'
    
-       },
-       {
+    },
+    {
         username: 'Jeremy Lewis',
         email: 'Jeremy@yahoo.com',
         phone: 1234567891,
@@ -46,8 +46,8 @@ const userdata = [
         city: 'Charlotte',
         password: 'pass'
    
-       },
-       {
+    },
+    {
         username: 'Sarah Davis',
         email: 'Sarah@yahoo.com',
         phone: 1234567891,
@@ -55,7 +55,7 @@ const userdata = [
         city: 'Tampa',
         password: 'pass'
    
-       }
+    }
 ];
 
 const seedUsers = () => User.bulkCreate(userdata, {individualHooks: true});

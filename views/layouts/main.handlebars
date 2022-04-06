@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<body class="h-screen bg-gradient-to-b from-indigo-900 to-violet-900">
-  <div class="">
+<body class="">
+  <div class="h-screen bg-gradient-to-b from-indigo-900 to-violet-900">
     <header class="flex flex-row items-center justify-between flex-wrap p-5 py-10 bg-gradient-to-b from-violet-900 to-transparent">
       <h1>
         <a class="text-indigo-50 text-2xl hover:text-indigo-200 hover:no-underline" href="/">Pet<i class="px-1 fa-solid fa-paw text-violet-400"></i>Fetcher</a>
@@ -29,10 +29,10 @@
     <main>
       {{{ body }}}
     </main>
-    <footer class="flex justify-center align-baseline bg-gradient-to-t from-violet-700 text-indigo-50 pb-4 pt-8 mt-6 text-xl">
+  </div>
+    <footer class="mt-auto flex justify-center bg-gradient-to-t from-violet-700 text-indigo-50 pb-4 pt-8 mt-6 text-xl">
       Thanks for visiting!
     </footer>
-  </div>
 
 {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
