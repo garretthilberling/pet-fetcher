@@ -1,0 +1,35 @@
+<article>
+  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <h2>
+    Edit Comment
+  </h2>
+  <form class="edit-post-form">
+    <div>
+      <input name="post-title" type="text" value="{{comment.comment_text}}" />
+      <span>({{format_url post.post_url}})</span>
+    </div>
+    <div>
+      {{comment.fav_count}} {{format_plural "point" comment.fav_count}} by you on {{format_date comment.created_at}}
+      |
+      <a href="/post/{{comment.id}}">{{comments.comments.length}} {{format_plural "comment" comment.comments.length}}</a>
+    </div>
+    <button type="submit">Save post</button>
+    <button type="button" class="delete-post-btn">Delete comment</button>
+  </form>
+</article>
+
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add comment</button>
+  </div>
+</form>
+
+{{> comments comment.comments}}
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/comment.js"></script
