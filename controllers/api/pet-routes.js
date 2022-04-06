@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { User, Pet, Comment, Fave } = require('../../models');
 const withAuth = require('../../utils/auth');
+const crypto = require('crypto');
+
 
 
 router.get('/', (req, res) => {
@@ -62,7 +64,34 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-    console.log(req.body.pic_filename)
+    const algorithm = 'aes-128-cbc';
+    const key = crypto.randomBytes(32);
+    const iv = crypto.randomBytes(16);
+    const encrypt = (input) => {
+        let cipher = crypto.createCipheriv(algorithm, Buffer.from(key), iv);
+        let encrypted = cipher.update(input);
+        encrypted = Buffer.concat([encrypted, cipher.final()]);
+
+        return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex') };
+    } 
+
+    var img = encrypt(req.body.pic_filename).encryptedData;
+    console.log('');
+    console.log('');
+    console.log('');
+    console.log('=============================================================================================');
+    console.log('');
+    console.log('');
+    console.log('');
+    console.log(img);
+    console.log('');
+    console.log('');
+    console.log('');
+    console.log('=============================================================================================');
+    console.log('');
+    console.log('');
+    console.log('');
+
     Pet.create({
         pet_name: req.body.pet_name,
         bio: req.body.bio,
@@ -71,7 +100,7 @@ router.post('/', withAuth, (req, res) => {
         size: req.body.size,
         age: req.body.age,
         user_id: req.session.user_id,
-        pic_filename: req.body.pic_filename
+        pic_filename: img
     })
     .then(dbPetData => res.json(dbPetData))
     .catch(err => {
@@ -92,6 +121,7 @@ router.put('/:id', (req, res) => {
             user_id: req.body.user_id
         },
         {
+            individualHooks: true,
             where: {
                 id: req.params.id
             }

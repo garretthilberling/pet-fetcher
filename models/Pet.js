@@ -83,16 +83,6 @@ Pet.init(
       },
     }, 
     { 
-      hooks: {
-        async beforeCreate(newPetData) {
-          newPetData.pic_filename = await bcrypt.hash(newPetData.pic_filename, 10);
-            return newPetData;
-        },
-        async beforeUpdate(updatedPetData) {
-          updatedPetData.pic_filename = await bcrypt.hash(updatedPetData.pic_filename, 10);
-            return updatedPetData;
-        }
-      },
       sequelize,
       freezeTableName: true,
       underscored: true,
