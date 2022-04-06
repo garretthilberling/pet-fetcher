@@ -62,6 +62,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
+    console.log(req.body.pic_filename)
     Pet.create({
         pet_name: req.body.pet_name,
         bio: req.body.bio,
@@ -69,7 +70,8 @@ router.post('/', withAuth, (req, res) => {
         breed: req.body.breed,
         size: req.body.size,
         age: req.body.age,
-        user_id: req.session.user_id
+        user_id: req.session.user_id,
+        pic_filename: req.body.pic_filename
     })
     .then(dbPetData => res.json(dbPetData))
     .catch(err => {

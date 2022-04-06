@@ -1,4 +1,5 @@
 const img = document.getElementById("img-input");
+var sendImg;
 
 async function convert() {
 
@@ -25,25 +26,29 @@ async function convert() {
 
 }
 
-function runFetch(data) {
+// function runFetch(data) {
 
-  fetch('/api/convertapi', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ information: data }),
-  })
-    .then(res => res.json())
-    .then(success => console.log(success))
-    .catch(err => console.log(err));
+//   fetch('/api/convertapi', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({ information: data }),
+//   })
+//     .then(res => res.json())
+//     .then(success => console.log(success))
+//     .catch(err => console.log(err));
 
-  return document.getElementById('test-id').setAttribute('src', data)
-}
+//   return document.getElementById('test-id').setAttribute('src', data)
+// }
 
 function setData(data) {
-  let newData = data;
-  return runFetch(newData)
+  preview(data);
+  sendImg = data;
 }
 
-img.addEventListener('change', convert);
+const preview = (imgPrev) => {
+    return document.getElementById('test-id').setAttribute('src', imgPrev);
+  }
+
+// img.addEventListener('change', convert);
