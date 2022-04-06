@@ -1,43 +1,49 @@
 const img = document.getElementById("img-input");
-// const fs = require('fs');
 
-// function upload (file) {
-//   return new Promise((resolve, reject) => {
-//       fs.writeFile(`../img/${file.name}.jpg`, file, err => {
-//         if (err) {
-//           reject(err);
-//           return;
-//         } else {
-//           console.log('');
-//           console.log('file successfully uploaded');
-//         }
-    
-//         resolve({
-//           ok: true,
-//           message: 'File created!'
-//         });
-//       });
-//   })
-//   // .then(() => {convert(file);})
-// };
+async function convert() {
 
-async function convert () {
-  console.log(JSON.stringify(img.value));
-  console.dir(img);
-  console.log(typeof img.value);
-  var formData = new FormData();
-  formData.append('image', img.files[0])
+  let newImage = URL.createObjectURL(img.files[0])
+  // runFetch(newImage);
+  var xhr = new XMLHttpRequest;
+  xhr.responseType = 'blob';
 
-  await fetch('/api/convertapi', {
+  xhr.onload = function () {
+    var recoveredBlob = xhr.response;
+
+    var reader = new FileReader;
+    var blobAsDataURL;
+    reader.onload = function () {
+      blobAsDataURL = reader.result;
+      setData(blobAsDataURL)
+    };
+
+    reader.readAsDataURL(recoveredBlob);
+  };
+
+  xhr.open('GET', newImage);
+  xhr.send();
+
+}
+
+function runFetch(data) {
+
+  fetch('/api/convertapi', {
     method: 'POST',
-    // headers: {
-    //   'Content-Type': 'image/jpg',
-    // },
-    body: ''
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ information: data }),
   })
-  .then(res => res.json())
-  .then(success => console.log(success))
-  .catch(err => console.log(err));
-};
+    .then(res => res.json())
+    .then(success => console.log(success))
+    .catch(err => console.log(err));
+
+  return document.getElementById('test-id').setAttribute('src', data)
+}
+
+function setData(data) {
+  let newData = data;
+  return runFetch(newData)
+}
 
 img.addEventListener('change', convert);

@@ -4,27 +4,28 @@
     <form id="new-pet-form">
         <div>
             <label for="pet_name">Name</label>
-            <input type="text" id="pet-name" name="pet-name"/>
+            <input type="text" id="pet-name" name="pet-name" />
         </div>
         <div>
             <label for="species">Species</label>
-            <input id="species" name="species"/>
+            <input id="species" name="species" />
 
             <label for="breed">Breed</label>
-            <input id="breed" name="breed"/>
+            <input id="breed" name="breed" />
 
             <label for="size">Size</label>
-            <input id="size" name="size"/>
+            <input id="size" name="size" />
 
             <label for="age">Age</label>
-            <input id="age" name="age"/>
+            <input id="age" name="age" />
 
             <label for="bio">Bio</label>
             <textarea id="bio" name="age"></textarea>
         </div>
-        <div class="js-upload uk-placeholder uk-text-center bg-gradient-to-r from-violet-600 to-indigo-700 text-indigo-50">
-                <span uk-icon="icon: cloud-upload"></span>
-                <span class="uk-text-middle">Attach binaries by dropping them here or</span>
+        <div
+            class="js-upload uk-placeholder uk-text-center bg-gradient-to-r from-violet-600 to-indigo-700 text-indigo-50">
+            <span uk-icon="icon: cloud-upload"></span>
+            <span class="uk-text-middle">Attach binaries by dropping them here or</span>
             <div uk-form-custom>
                 <form encType="multipart/form-data" action="">
                     <input id="img-input" type="file" multiple />
@@ -32,8 +33,8 @@
                 <span class="uk-link text-sky-500">selecting one</span>
             </div>
         </div>
-
-<progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
+        <img id="test-id" />
+        <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
 
         <button type="submit" class="">Create</button>
     </form>
