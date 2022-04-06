@@ -15,8 +15,15 @@
             </div>    
 
             <div>
-            <label for="species"></label>
-            <input class="dashboard-inputs" placeholder="Species" id="species" name="species"/>
+            <span id="species-select">
+                <label for="species">Species</label>
+                <select name="species" id="species">
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="other">Other</option>
+                </select>
+            </span>
+            {{!-- <input class="dashboard-inputs" placeholder="Species" id="species" name="species"/> --}}
             </div>
             
             <div class="uk-margin-small-top">
