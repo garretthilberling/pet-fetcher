@@ -38,7 +38,6 @@ async function newFormHandler(event) {
     const age = document.getElementById('age').value;
     const bio = document.getElementById('bio').value;
     const pic_filename = sendImg;
-    console.log(pic_filename);
 
     const response = await fetch(`/api/pets`, {
       method: 'POST',
