@@ -5,12 +5,7 @@ const bcrypt = require('bcrypt');
 
 // create our Pet model
 class Pet extends Model {
-
-  hashImg(img) { //have to hash the image because the string is too long to store in the db as-is
-    return bcrypt.compareSync(img, this.pic_filename)
-  }
-
-  static fave(body, models) {
+  static addFave(body, models) {
       return models.Fave.create({
           owner_id: body.owner_id,
           pet_id: body.pet_id
@@ -21,14 +16,7 @@ class Pet extends Model {
               },
               attributes: [
                   'id',
-                  'pet_name', 
-                  'bio', 
-                  'species', 
-                  'breed', 
-                  'size', 
-                  'age',
-                  'user_id',
-                  'pic_filename',
+                  'pet_name', 'bio', 'species', 'breed', 'size', 'age', 'pic_filename',
                   'created_at',
                   [sequelize.literal('(SELECT COUNT(*) FROM fave WHERE pet.id = fave.pet_id)'), 'fave_count']
               ]

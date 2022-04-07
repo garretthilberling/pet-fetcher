@@ -72,6 +72,10 @@ router.get("/pet/:id", (req, res) => {
           attributes: ['username']
         }
       },
+      {
+        model: User,
+        attributes: ["username"],
+      },
     ],
   })
     .then((dbPetData) => {
