@@ -37,6 +37,6 @@ This project was created by:
 * Garrett Hilberling: https://www.linkedin.com/in/garretthilberling/
 * Heather Tamisiea: https://www.linkedin.com/in/heather-tamisiea-989468228/
 * Aaron Navarro: (your linkedin)
-* Douglas Knowles: (your linkedin)
+* Douglas Knowles: https://www.linkedin.com/in/douglas-knowles-a621b6227/
 
     
