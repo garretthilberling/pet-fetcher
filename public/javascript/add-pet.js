@@ -68,4 +68,4 @@ async function newFormHandler(event) {
   
   
   document.getElementById('new-pet-submit').addEventListener('click', newFormHandler);
-  img.addEventListener('change', convert);
+  document.getElementById('img-input').addEventListener('change', convert);
