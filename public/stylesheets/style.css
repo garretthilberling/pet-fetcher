@@ -20,5 +20,18 @@ border-radius: 4px;
     
 }
 
+.heart-icon {
+    position: relative;
+    left: 695px;
+    bottom: 65px
 
+}
 
+@media only screen and (max-width: 844) {
+    .heart-icon {
+        position: relative;
+        left: 200px;
+        bottom: 65px
+    
+    }
+}

@@ -9,7 +9,7 @@ router.get("/", withAuth, (req, res) => {
   console.log("======================");
   Pet.findAll({
     where: {
-      user_id: req.session.id,
+      user_id: req.session.user_id,
     },
     attributes: [
       "id",
@@ -90,6 +90,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
         const pet = dbPetData.get({ plain: true });
 
         res.render("edit-pet", {
+          user: req.session.username,
           pet,
           loggedIn: true,
         });
