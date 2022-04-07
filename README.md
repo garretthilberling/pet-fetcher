@@ -8,10 +8,17 @@
 * [Credits](#Credits)
 
 ## Description
-Pet&#128062;Fetcher is a full stack application designed to allow pet users to post listings of dogs who need a home. Users can upload a picture of their pet and it will be stored in the database. The languages and technologies used to build this application are: JavaScript, ES6, MySQL, mysql2, Sequelize, bcrypt, express, express-handlebars, express-session, connext-session-sequelize, body-parser, CSS, Tailwind CSS, UIKit, & the implementation of the MVC file structure.
+Pet&#128062;Fetcher is dedicated to enriching the lives of all pets looking for their forever homes, as well as that of their humans who are either in need of companionship, or relief of the same.
+
+Whether you are looking for the perfect match for your unwanted pet, or finding that one of a kind friend to join your family - we can help.
+
+Search our database for available pets, or list your pet for adoption so others can make a connection that will make both lives the best they can be!
+
+The languages and technologies used to build this full-stack application are: JavaScript, ES6, MySQL, mysql2, Sequelize, bcrypt, express, express-handlebars, express-session, connext-session-sequelize, body-parser, CSS, Tailwind CSS, UIKit, & the implementation of the MVC file structure.
 
 ## Usage
 Simply create an account and post your furry friend! Feel free to leave a comment and like other users' posts!
+
 
 # <img src="./public/img/pf-application-screenshot.png?raw=true" width="700">
 
