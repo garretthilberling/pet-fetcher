@@ -36,7 +36,7 @@ If you have any questions about this project, please contact us via GitHub:
 This project was created by:
 * Garrett Hilberling: https://www.linkedin.com/in/garretthilberling/
 * Heather Tamisiea: https://www.linkedin.com/in/heather-tamisiea-989468228/
-* Aaron Navarro: (your linkedin)
-* Douglas Knowles: (your linkedin)
+* Aaron Navarro: https://www.linkedin.com/in/aaron-navarro-8a8a55a7/
+* Douglas Knowles: https://www.linkedin.com/in/douglas-knowles-a621b6227/
 
     
