@@ -1,70 +1,66 @@
 <section class="uk-flex uk-flex-center">
     
-    <div>
-    <form class="">
+    <div class="">
+        <form class="">
         
-        <div class="input-padding form-background uk-margin-small-top">
+            <div class="rounded-t-lg uk-margin-small-top bg-gradient-to-b from-violet-600 to-indigo-700 shadow-2xl shadow-indigo-700">
 
-            <div>
-    <h2 class="uk-text-large uk-text-muted">Create New Post</h2>
-    </div>
+                <div class="">
+                    <div class="flex justify-center pt-4 mt-9 mb-7 items-center">
+                        <h2 class="uk-text-large text-indigo-50"><i class="fa-solid fa-cat pr-2 text-violet-300"></i> Post Your Pet <i class="fa-solid fa-dog pl-2 text-violet-300"></i></h2>
+                    </div>
+                    <div class="px-6" uk-grid>
+                        <div class="flex justify-center">
+                            <label for="pet_name"></label>
+                            <input class="dashboard-inputs" type="text" placeholder="Pet Name" id="pet-name" name="pet-name"/>
+                        </div>    
 
-            <div class="">
-                <label for="pet_name"></label>
-                <input class="dashboard-inputs" type="text" placeholder="Pet Name" id="pet-name" name="pet-name"/>
-            </div>    
+                        <div class="flex justify-center">
+                            <label for="species"></label>
+                            <input class="dashboard-inputs" placeholder="Species" id="species" name="species"/>
+                        </div>
+                        
+                        <div class="flex justify-center">
+                            <label for="breed"></label>
+                            <input class="dashboard-inputs" placeholder="Breed" id="breed" name="breed"/>
+                        </div>
+                        
+                        <div class="flex justify-center">
+                            <label for="size"></label>
+                            <input class="dashboard-inputs" placeholder="Size" id="size" name="size"/>
+                        </div>
+                        
+                        <div class="flex justify-center">
+                            <label for="age"></label>
+                            <input class="dashboard-inputs" placeholder="Age" id="age" name="age"/>
+                        </div>
 
-            <div>
-                <label for="species"></label>
-                <input class="dashboard-inputs" placeholder="Species" id="species" name="species"/>
-            </div>
-            
-            <div class="uk-margin-small-top">
-                <label for="breed"></label>
-                <input class="dashboard-inputs" placeholder="Breed" id="breed" name="breed"/>
-            </div>
-            
-            <div class="uk-margin-small-top">
-                <label for="size"></label>
-                <input class="dashboard-inputs" placeholder="Size" id="size" name="size"/>
-            </div>
-            
-            <div class="uk-margin-small-top">
-                <label for="age"></label>
-                <input class="dashboard-inputs" placeholder="Age" id="age" name="age"/>
-            </div>
-            
-            {{!-- <div class="uk-margin-small-top">
-                <label for="pic_filename"></label>
-                <input class="dashboard-inputs" placeholder="Image URL" id="pic_filename" name="pic_filename"/>
-            </div> --}}
-
-            <div class="uk-margin-small-top">
-                <label for="bio"></label>
-                <textarea class="dashboard-inputs" placeholder="Bio" id="bio" name="age"></textarea>
-            </div>
-
-            <div
-            class="js-upload uk-placeholder uk-text-center bg-gradient-to-r from-violet-600 to-indigo-700 text-indigo-50">
-                <span uk-icon="icon: cloud-upload"></span>
-                <span class="uk-text-middle">Attach binaries by dropping them here or</span>
-                <div uk-form-custom>
-                    <form encType="multipart/form-data" action="">
-                        <input id="img-input" type="file" multiple />
-                    </form>
-                    <span class="uk-link text-sky-500">selecting one</span>
+                        <div class="flex justify-center">
+                            <label for="bio"></label>
+                            <textarea class="dashboard-inputs" placeholder="Bio" id="bio" name="age"></textarea>
+                        </div>
+                    </div>
                 </div>
+                <div class="mt-4 mx-0 px-0">
+                    <div
+                    class="js-upload uk-placeholder uk-text-center bg-gradient-to-r from-violet-600 to-indigo-600 text-indigo-50 mb-0 mx-0 px-0">
+                        <span uk-icon="icon: cloud-upload"></span>
+                        <span class="uk-text-middle">Upload your pet's photo here!</span>
+                        <div uk-form-custom>
+                            <form encType="multipart/form-data" action="">
+                                <input id="img-input" type="file" multiple />
+                            </form>
+                            <span class="uk-link text-sky-500">selecting one</span>
+                        </div>
+                        <img id="test-id" />
+                    </div>
+                </div>
+
+
+                <button class="uk-button uk-button-primary bg-indigo-800 hover:bg-indigo-500 uk-width-1-1 m-0 p-0"  id="new-pet-submit" type="submit">Create</button>
             </div>
-        <img id="test-id" />
-        <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
-
-
-            <button class="uk-button uk-button-secondary uk-width-1-1"  id="new-pet-submit" type="submit" class="">Create</button>
-        </div>
-        
-        
-    </form>
-    <span id="test-id"></span>
+            <div id="test-id"></div>
+        </form>
     </div>
 </section>
 
