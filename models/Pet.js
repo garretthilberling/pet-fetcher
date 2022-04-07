@@ -78,7 +78,7 @@ Pet.init(
           allowNull: false
       },
       pic_filename: {
-        type: DataTypes.STRING,
+        type: DataTypes.BLOB,
         allowNull: true,
       },
     }, 

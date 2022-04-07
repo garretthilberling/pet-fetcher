@@ -75,14 +75,30 @@ router.post('/', withAuth, (req, res) => {
     //     return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex') };
     // } 
 
-    function encrypt(text) {
-        var cipher = crypto.createCipher('aes-128-cbc', req.body.pic_filename);
-        var crypted = cipher.update(text, 'utf8', 'hex');
-        crypted += cipher.final('hex');
-        return crypted;
+    // function encrypt(text) {
+    //     var cipher = crypto.createCipher('aes-128-cbc', req.body.pic_filename);
+    //     var crypted = cipher.update(text, 'utf8', 'hex');
+    //     crypted += cipher.final('hex');
+    //     return crypted;
+    // }
+
+    
+
+    // async function getImgBlob() {
+    //     await fetch(req.body.pic_filename).then(convert => convert.blob())
+    //                                       .then(blob => { return JSON.stringify(blob) });
+    // } 
+
+    function getImgBlob(dataURI, dataTYPE) {
+        // console.log(dataURI, dataTYPE);
+        var binary = atob(dataURI.split(',')[1]), array = [];
+        for(var i = 0; i < binary.length; i++) array.push(binary.charCodeAt(i));
+        return new Blob([new Uint8Array(array)], {type: dataTYPE});
     }
 
-    var img = encrypt(req.body.pic_filename);
+    console.log(getImgBlob(req.body.pic_filename, 'url')[0]);
+
+    var img;
     console.log('');
     console.log('');
     console.log('');
