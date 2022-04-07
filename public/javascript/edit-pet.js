@@ -43,6 +43,8 @@ async function editFormHandler(event) {
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
+    console.log(id);
+    
     const response = await fetch(`/api/pets/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
@@ -69,7 +71,7 @@ async function editFormHandler(event) {
     return document.getElementById('test-id').setAttribute('src', imgPrev);
   }
   
-  document.getElementById('edit-pet-form').addEventListener('submit', editFormHandler);
+  document.getElementById('edit-pet').addEventListener('submit', editFormHandler);
   document.getElementById('img-input').addEventListener('change', convert);
 
   

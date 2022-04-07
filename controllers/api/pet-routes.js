@@ -111,7 +111,6 @@ router.put('/:id', (req, res) => {
             pic_filename: req.body.pic_filename
         },
         {
-            individualHooks: true,
             where: {
                 id: req.params.id
             }
