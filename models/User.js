@@ -31,7 +31,7 @@ User.init(
         }
       },
       phone: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
           len: [10, 11] // expects 2223334444 or 12223334444. 

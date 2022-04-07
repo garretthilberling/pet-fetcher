@@ -1,13 +1,16 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { User, Pet, Comment, Fave } = require('../../models');
 const withAuth = require('../../utils/auth');
-const crypto = require('crypto');
 
 
 
 router.get('/', (req, res) => {
+    console.log('======================');
     Pet.findAll({
-        attributes: ['id', 'pet_name', 'bio', 'species', 'breed', 'size', 'age', 'user_id', 'created_at'],
+        attributes: ['id', 'pet_name', 'bio', 'species', 'breed', 'size', 'age', 'user_id', 'created_at',
+        [sequelize.literal('(SELECT COUNT(*) FROM fave WHERE pet.id = fave.pet_id)'), 'fave_count']
+    ],
         include: [
             {
                 model: Comment,
@@ -25,6 +28,7 @@ router.get('/', (req, res) => {
     })
     .then(dbPetData => res.json(dbPetData))
     .catch(err => {
+        console.log(err);
         res.status(500).json(err);
     });
 });
@@ -34,7 +38,9 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id', 'pet_name', 'bio', 'species', 'breed', 'size', 'age', 'user_id', 'created_at'],
+        attributes: ['id', 'pet_name', 'bio', 'species', 'breed', 'size', 'age', 'user_id', 'created_at',
+        [sequelize.literal('(SELECT COUNT(*) FROM fave WHERE pet.id = fave.pet_id)'), 'fave_count']
+    ],
         include: [
             {
                 model: Comment,
@@ -64,54 +70,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-    // const algorithm = 'aes-128-cbc';
-    // const key = crypto.randomBytes(32);
-    // const iv = crypto.randomBytes(16);
-    // const encrypt = (input) => {
-    //     let cipher = crypto.createCipheriv(algorithm, Buffer.from(key), iv);
-    //     let encrypted = cipher.update(input);
-    //     encrypted = Buffer.concat([encrypted, cipher.final()]);
-
-    //     return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex') };
-    // } 
-
-    // function encrypt(text) {
-    //     var cipher = crypto.createCipher('aes-128-cbc', req.body.pic_filename);
-    //     var crypted = cipher.update(text, 'utf8', 'hex');
-    //     crypted += cipher.final('hex');
-    //     return crypted;
-    // }
-
-    
-
-    // async function getImgBlob() {
-    //     await fetch(req.body.pic_filename).then(convert => convert.blob())
-    //                                       .then(blob => { return JSON.stringify(blob) });
-    // } 
-
-    function getImgBlob(dataURI, dataTYPE) {
-        // console.log(dataURI, dataTYPE);
-        // var binary = atob(dataURI.split(',')[1]), array = [];
-        // for(var i = 0; i < binary.length; i++) array.push(binary.charCodeAt(i));
-        // return new Blob([new Uint8Array(array)], {type: dataTYPE});
-    }
-
-    var img = req.body.pic_filename;
-    console.log('');
-    console.log('');
-    console.log('');
-    console.log('=============================================================================================');
-    console.log('');
-    console.log('');
-    console.log('');
-    console.log(img);
-    console.log('');
-    console.log('');
-    console.log('');
-    console.log('=============================================================================================');
-    console.log('');
-    console.log('');
-    console.log('');
 
     Pet.create({
         pet_name: req.body.pet_name,
@@ -121,7 +79,7 @@ router.post('/', withAuth, (req, res) => {
         size: req.body.size,
         age: req.body.age,
         user_id: req.session.user_id,
-        pic_filename: img
+        pic_filename: req.body.pic_filename
     })
     .then(dbPetData => res.json(dbPetData))
     .catch(err => {
@@ -129,6 +87,16 @@ router.post('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+
+router.put('/addFave', withAuth, (req, res) => {
+    // custom static method created in models/Post.js
+    Pet.addFave({ ...req.body, user_id: req.session.user_id }, { Pet, Comment, User })
+      .then(updatedFaveData => res.json(updatedFaveData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
 router.put('/:id', (req, res) => {
     Pet.update(
@@ -159,18 +127,6 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
-
-router.put('/fave', withAuth, (req, res) => {
-    if (req.session) {
-      // custom static method created in models/Post.js
-      Pet.fave({ ...req.body, user_id: req.session.user_id }, { Fave, Comment, User })
-        .then(updatedFaveData => res.json(updatedFaveData))
-        .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-        });
-    }
-  });
 
 router.delete('/:id', (req, res) => {
     Pet.destroy({

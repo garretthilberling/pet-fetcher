@@ -1,3 +1,25 @@
 :root {
     background-color: #4c1d95;
 }
+
+.form-background {
+    background-color: #3f1d71;
+}
+
+
+.dashboard-inputs {
+display: block;
+margin-bottom: 20px;
+padding: 5px;
+border-radius: 4px;
+}
+
+.input-padding {
+    padding: 5px;
+    border-radius: 4px;
+    
+}
+
+.dash-h2 {
+    color: azure;
+}

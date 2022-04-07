@@ -1,43 +1,70 @@
-<section>
-    <h2>Create New Post</h2>
+<section class="uk-flex uk-flex-center">
+    
+    <div>
+    <form class="" id="new-pet-form">
+        
+        <div class="input-padding form-background uk-margin-small-top">
 
-    <form>
-        <div>
-            <label for="pet_name">Name</label>
-            <input type="text" id="pet-name" name="pet-name" />
-        </div>
-        <div>
-            <label for="species">Species</label>
-            <input id="species" name="species" />
+            <div>
+    <h2 class="uk-text-large uk-text-muted">Create New Post</h2>
+    </div>
 
-            <label for="breed">Breed</label>
-            <input id="breed" name="breed" />
+            <div class="">
+                <label for="pet_name"></label>
+                <input class="dashboard-inputs" type="text" placeholder="Pet Name" id="pet-name" name="pet-name"/>
+            </div>    
 
-            <label for="size">Size</label>
-            <input id="size" name="size" />
-
-            <label for="age">Age</label>
-            <input id="age" name="age" />
-
-            <label for="bio">Bio</label>
-            <textarea id="bio" name="age"></textarea>
-        </div>
-        <div
-            class="js-upload uk-placeholder uk-text-center bg-gradient-to-r from-violet-600 to-indigo-700 text-indigo-50">
-            <span uk-icon="icon: cloud-upload"></span>
-            <span class="uk-text-middle">Attach binaries by dropping them here or</span>
-            <div uk-form-custom>
-                <form encType="multipart/form-data" action="">
-                    <input id="img-input" type="file" multiple />
-                </form>
-                <span class="uk-link text-sky-500">selecting one</span>
+            <div>
+                <label for="species"></label>
+                <input class="dashboard-inputs" placeholder="Species" id="species" name="species"/>
             </div>
-        </div>
+            
+            <div class="uk-margin-small-top">
+                <label for="breed"></label>
+                <input class="dashboard-inputs" placeholder="Breed" id="breed" name="breed"/>
+            </div>
+            
+            <div class="uk-margin-small-top">
+                <label for="size"></label>
+                <input class="dashboard-inputs" placeholder="Size" id="size" name="size"/>
+            </div>
+            
+            <div class="uk-margin-small-top">
+                <label for="age"></label>
+                <input class="dashboard-inputs" placeholder="Age" id="age" name="age"/>
+            </div>
+            
+            <div class="uk-margin-small-top">
+                <label for="pic_filename"></label>
+                <input class="dashboard-inputs" placeholder="Image URL" id="pic_filename" name="pic_filename"/>
+            </div>
+
+            <div class="uk-margin-small-top">
+                <label for="bio"></label>
+                <textarea class="dashboard-inputs" placeholder="Bio" id="bio" name="age"></textarea>
+            </div>
+
+            <div
+            class="js-upload uk-placeholder uk-text-center bg-gradient-to-r from-violet-600 to-indigo-700 text-indigo-50">
+                <span uk-icon="icon: cloud-upload"></span>
+                <span class="uk-text-middle">Attach binaries by dropping them here or</span>
+                <div uk-form-custom>
+                    <form encType="multipart/form-data" action="">
+                        <input id="img-input" type="file" multiple />
+                    </form>
+                    <span class="uk-link text-sky-500">selecting one</span>
+                </div>
+            </div>
         <img id="test-id" />
         <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
 
-        <button  id="new-pet-submit" type="click" class="">Create</button>
+
+            <button class="uk-button uk-button-secondary uk-width-1-1" type="submit" class="">Create</button>
+        </div>
+        
+        
     </form>
+    </div>
 </section>
 
 {{#if pets.length}}
