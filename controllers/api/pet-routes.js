@@ -91,14 +91,12 @@ router.post('/', withAuth, (req, res) => {
 
     function getImgBlob(dataURI, dataTYPE) {
         // console.log(dataURI, dataTYPE);
-        var binary = atob(dataURI.split(',')[1]), array = [];
-        for(var i = 0; i < binary.length; i++) array.push(binary.charCodeAt(i));
-        return new Blob([new Uint8Array(array)], {type: dataTYPE});
+        // var binary = atob(dataURI.split(',')[1]), array = [];
+        // for(var i = 0; i < binary.length; i++) array.push(binary.charCodeAt(i));
+        // return new Blob([new Uint8Array(array)], {type: dataTYPE});
     }
 
-    console.log(getImgBlob(req.body.pic_filename, 'url')[0]);
-
-    var img;
+    var img = req.body.pic_filename;
     console.log('');
     console.log('');
     console.log('');
