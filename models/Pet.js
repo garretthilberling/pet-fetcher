@@ -1,11 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
+
 
 // create our Pet model
 class Pet extends Model {
   static addFave(body, models) {
       return models.Fave.create({
-          user_id: body.user_id,
+          owner_id: body.owner_id,
           pet_id: body.pet_id
       }).then(() => {
           return Pet.findOne({
@@ -61,13 +63,13 @@ Pet.init(
       },
       user_id: {
           type: DataTypes.INTEGER,
-          allowNull: true
+          allowNull: false
       },
-       pic_filename: {
-        type: DataTypes.STRING,
+      pic_filename: {
+        type: DataTypes.TEXT('long'),
         allowNull: true,
       },
-    },
+    }, 
     { 
       sequelize,
       freezeTableName: true,

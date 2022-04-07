@@ -1,7 +1,7 @@
 <section class="uk-flex uk-flex-center">
     
     <div>
-    <form class="" id="new-pet-form">
+    <form class="">
         
         <div class="input-padding form-background uk-margin-small-top">
 
@@ -34,21 +34,37 @@
                 <input class="dashboard-inputs" placeholder="Age" id="age" name="age"/>
             </div>
             
-            <div class="uk-margin-small-top">
+            {{!-- <div class="uk-margin-small-top">
                 <label for="pic_filename"></label>
                 <input class="dashboard-inputs" placeholder="Image URL" id="pic_filename" name="pic_filename"/>
-            </div>
+            </div> --}}
 
             <div class="uk-margin-small-top">
                 <label for="bio"></label>
                 <textarea class="dashboard-inputs" placeholder="Bio" id="bio" name="age"></textarea>
             </div>
 
-            <button class="uk-button uk-button-secondary uk-width-1-1" type="submit" class="">Create</button>
+            <div
+            class="js-upload uk-placeholder uk-text-center bg-gradient-to-r from-violet-600 to-indigo-700 text-indigo-50">
+                <span uk-icon="icon: cloud-upload"></span>
+                <span class="uk-text-middle">Attach binaries by dropping them here or</span>
+                <div uk-form-custom>
+                    <form encType="multipart/form-data" action="">
+                        <input id="img-input" type="file" multiple />
+                    </form>
+                    <span class="uk-link text-sky-500">selecting one</span>
+                </div>
+            </div>
+        <img id="test-id" />
+        <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
+
+
+            <button class="uk-button uk-button-secondary uk-width-1-1"  id="new-pet-submit" type="submit" class="">Create</button>
         </div>
         
         
     </form>
+    <span id="test-id"></span>
     </div>
 </section>
 
