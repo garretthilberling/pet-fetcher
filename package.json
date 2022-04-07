@@ -25,7 +25,6 @@
     "body-parser": "^1.20.0",
     "connect-session-sequelize": "^7.1.2",
     "convertapi": "^1.11.1",
-    "dataurl-to-blob": "^0.0.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-handlebars": "^6.0.3",
