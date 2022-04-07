@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node server",
     "listen": "nodemon server",
-    "test": "mocha",
     "build-css": "npx tailwindcss -i public/stylesheets/src/input.css -o public/stylesheets/dist/output.css --watch",
     "seed": "node seeds"
   },
