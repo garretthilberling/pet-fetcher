@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 // create our Pet model
 class Pet extends Model {
-  static fave(body, models) {
+  static addFave(body, models) {
       return models.Fave.create({
           user_id: body.user_id,
           pet_id: body.pet_id
@@ -14,7 +14,7 @@ class Pet extends Model {
               },
               attributes: [
                   'id',
-                  'pet_name', 'bio', 'species', 'breed', 'size', 'age',
+                  'pet_name', 'bio', 'species', 'breed', 'size', 'age', 'pic_filename',
                   'created_at',
                   [sequelize.literal('(SELECT COUNT(*) FROM fave WHERE pet.id = fave.pet_id)'), 'fave_count']
               ]
@@ -63,7 +63,7 @@ Pet.init(
           type: DataTypes.INTEGER,
           allowNull: true
       },
-      pic_filename: {
+       pic_filename: {
         type: DataTypes.STRING,
         allowNull: true,
       },

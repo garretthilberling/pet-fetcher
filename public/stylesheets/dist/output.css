@@ -478,6 +478,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 0.75rem;
 }
 
+.mt-auto {
+  margin-top: auto;
+}
+
 .mt-6 {
   margin-top: 1.5rem;
 }
