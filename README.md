@@ -12,7 +12,7 @@ Pet&#128062;Fetcher is a full stack application designed to allow pet users to p
 
 ## Usage
 Simply create an account and post your furry friend! Feel free to leave a comment and like other users' posts!
-![application screenshot](./public/img/application-screenshot.png?raw=true)
+![application screenshot](./public/img/application-screenshot.png?raw=true | width=100)
 
 ## Installation
 No installation required! Access via the deployed Heroku URL: https://pet-fetcher.herokuapp.com/
