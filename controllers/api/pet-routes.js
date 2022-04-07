@@ -4,6 +4,7 @@ const { User, Pet, Comment, Fave } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
+
 router.get('/', (req, res) => {
     console.log('======================');
     Pet.findAll({
@@ -69,6 +70,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
+
     Pet.create({
         pet_name: req.body.pet_name,
         bio: req.body.bio,
@@ -76,8 +78,8 @@ router.post('/', withAuth, (req, res) => {
         breed: req.body.breed,
         size: req.body.size,
         age: req.body.age,
-        pic_filename: req.body.pic_filename,
-        user_id: req.session.user_id
+        user_id: req.session.user_id,
+        pic_filename: req.body.pic_filename
     })
     .then(dbPetData => res.json(dbPetData))
     .catch(err => {
@@ -108,6 +110,7 @@ router.put('/:id', (req, res) => {
             user_id: req.body.user_id
         },
         {
+            individualHooks: true,
             where: {
                 id: req.params.id
             }
