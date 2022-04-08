@@ -14,6 +14,7 @@ router.get("/", (req, res) => {
       "size",
       "age",
       "pic_filename",
+      [sequelize.literal('(SELECT COUNT(*) FROM fave WHERE pet.id = fave.pet_id)'), 'fave_count'],
       "created_at"
     ],
     include: [
@@ -61,6 +62,7 @@ router.get("/pet/:id", (req, res) => {
       "size",
       "age",
       "pic_filename",
+      [sequelize.literal('(SELECT COUNT(*) FROM fave WHERE pet.id = fave.pet_id)'), 'fave_count'],
       "created_at",
     ],
     include: [
