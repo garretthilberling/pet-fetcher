@@ -88,9 +88,9 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-router.put('/addFave', withAuth, (req, res) => {
-    // custom static method created in models/Post.js
-    Pet.addFave({ ...req.body, user_id: req.session.user_id }, { Pet, Comment, User })
+router.put('/addfave', withAuth, (req, res) => {
+    // custom static method created in models/Pets.js
+    Pet.addFave({ ...req.body, user_id: req.session.user_id }, { Fave, Comment, User })
       .then(updatedFaveData => res.json(updatedFaveData))
       .catch(err => {
         console.log(err);
