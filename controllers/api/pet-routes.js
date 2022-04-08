@@ -107,7 +107,8 @@ router.put('/:id', (req, res) => {
             breed: req.body.breed,
             size: req.body.size,
             age: req.body.age,
-            user_id: req.body.user_id
+            user_id: req.body.user_id,
+            pic_filename: req.body.pic_filename
         },
         {
             where: {

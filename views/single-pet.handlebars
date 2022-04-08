@@ -1,19 +1,29 @@
-{{> pet-info pet}}
+    <div class="uk-child-width-1-2@m flex justify-center"uk-grid>
+        <div>
+            {{> pet-info pet}}
+            <div class="heart-icon"><button class="text-indigo-50 hover:text-indigo-100" id="addFave-btn"><i class="fa-solid fa-heart text-4xl" id="heart"></i></button></div>
+        </div>
+    </div>
 
 {{#if loggedIn}}
-<form id="comment-form">
-    <div>
-        <textarea id="comment-body"></textarea>
-    </div>
+<div class="flex flex-wrap justify-center items-center">
+    <article class="m-8">
+        <form id="comment-form">
+            <div class="m-2">
+                <textarea class="rounded text-black p-2" id="comment-body"></textarea>
+            </div>
 
-    <div>
-        <button type="submit">add comment</button>
-        <button type="button" id="addFave-btn">Fave</button>
-    </div>
-</form>
+            <div class="m-2">
+                <button type="submit" class="text-indigo-50 bg-violet-400 hover:bg-violet-300 text-white font-bold py-2 my-1 px-2 mx-1 rounded border-b-4 border-indigo-700 flex justify-center">add comment</button>
+                <button type="button" id="addFave-btn" class="text-indigo-50 bg-violet-400 hover:bg-violet-300 font-bold py-2 my-1 px-2 mx-1 rounded border-b-4 border-indigo-700 flex justify-center">Fave</button>
+            </div>
+        </form>
+    </article>
+</div>
 {{/if}}
-
-{{> comments pet.comments}}
+<div class="flex h-screen justify-center items-center">
+    {{> comments pet.comments}}
+</div>
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>

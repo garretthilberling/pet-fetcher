@@ -1,5 +1,12 @@
+function toggleHeartColor(event) {
+    event.preventDefault();
+
+    document.getElementById('heart').classList.toggle('.text-red-500');
+}
+
 async function addFaveClickHandler(event) {
     event.preventDefault();
+
 
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
@@ -23,3 +30,4 @@ async function addFaveClickHandler(event) {
 }
 
 document.getElementById('addFave-btn').addEventListener('click', addFaveClickHandler);
+document.getElementById('addFave-btn').addEventListener('click', toggleHeartColor);
