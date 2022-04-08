@@ -5,7 +5,6 @@ var sendImg;
 function convert() {
 
   let newImage = URL.createObjectURL(img.files[0])
-  // runFetch(newImage);
   var xhr = new XMLHttpRequest;
   xhr.responseType = 'blob';
 
@@ -71,7 +70,7 @@ async function editFormHandler(event) {
     return document.getElementById('test-id').setAttribute('src', imgPrev);
   }
   
-  document.getElementById('edit-pet').addEventListener('submit', editFormHandler);
+  document.getElementById('edit-pet').addEventListener('click', editFormHandler);
   document.getElementById('img-input').addEventListener('change', convert);
 
   

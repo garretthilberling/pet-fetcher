@@ -88,9 +88,9 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-router.put('/addFave', withAuth, (req, res) => {
-    // custom static method created in models/Post.js
-    Pet.addFave({ ...req.body, user_id: req.session.user_id }, { Pet, Comment, User })
+router.put('/addfave', withAuth, (req, res) => {
+    // custom static method created in models/Pets.js
+    Pet.addFave({ ...req.body, user_id: req.session.user_id }, { Fave, Comment, User })
       .then(updatedFaveData => res.json(updatedFaveData))
       .catch(err => {
         console.log(err);
@@ -103,11 +103,10 @@ router.put('/:id', (req, res) => {
         {
             pet_name: req.body.pet_name,
             bio: req.body.bio,
-            species: req.session.user_id,
+            species: req.body.species,
             breed: req.body.breed,
             size: req.body.size,
             age: req.body.age,
-            user_id: req.body.user_id,
             pic_filename: req.body.pic_filename
         },
         {
