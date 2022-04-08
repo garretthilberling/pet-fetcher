@@ -103,11 +103,10 @@ router.put('/:id', (req, res) => {
         {
             pet_name: req.body.pet_name,
             bio: req.body.bio,
-            species: req.session.user_id,
+            species: req.body.species,
             breed: req.body.breed,
             size: req.body.size,
             age: req.body.age,
-            user_id: req.body.user_id,
             pic_filename: req.body.pic_filename
         },
         {
