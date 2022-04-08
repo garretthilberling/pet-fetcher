@@ -1,10 +1,10 @@
 <div
-  class="uk-height-large rounded-t-lg uk-card uk-card-default uk-card-body text-indigo-50 bg-gradient-to-b from-indigo-500 to-indigo-800 mx-3"
+  class="uk-height-large rounded-t-lg uk-card uk-card-default uk-card-body text-indigo-50 bg-gradient-to-b from-indigo-500 to-blue-300 mx-3"
 >
 <input id="get-id" value="{{id}}" class="invisible"/>
 <div class="uk-transition-toggle" tabindex="0">
             <img class="uk-position-center uk-preserve-width uk-responsive-height uk-object-scale-down" src="{{pic_filename}}" width="auto" height="auto" alt="">
-            <div class="uk-transition-slide-left uk-position-top uk-overlay uk-overlay-default">
+            <div class="uk-transition-slide-left uk-position-top uk-overlay uk-overlay-default rounded-t-lg">
                 <p class="uk-h4 uk-margin-remove">{{bio}}</p>
             </div>
         </div>
@@ -12,8 +12,8 @@
 
     <div class="relative">
       <div class="absolute bottom-0">
-          <div class="flex flex-row items-center justify-between flex-wrap">
-            <div class="card-title "> 
+          <div class="flex flex-row items-center justify-between flex-wrap border-b-1 border-indigo-400">
+            <div class="card-title mb-1"> 
                 <a href="/pet/{{id}}" class="font-semibold text-sky-500 hover:text-sky-400 hover:no-underline text-xl">
                   {{user.username}}
                 </a>
