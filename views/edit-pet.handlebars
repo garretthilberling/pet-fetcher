@@ -18,12 +18,12 @@
                   <a href="/dashboard/"><i id="edit-pet" class="fas fa-save text-sky-400 hover:text-sky-500 text-2xl"></i></a>
               </div>
               <div class="flex my-5">
-                  <button id="delete-post-btn"><i class="fa fa-trash text-red-500 hover:text-red-300 text-2xl" aria-hidden="true"></i></button>
+                  <button id="delete-pet-btn"><i class="fa fa-trash text-red-500 hover:text-red-300 text-2xl" aria-hidden="true"></i></button>
               </div>
           </div>
       </div>
       <div class="rounded-t-lg bg-gradient-to-b from-violet-600 to-indigo-700 shadow-2xl shadow-indigo-700">
-          <form id="edit-pet-form" class="bg-transparent rounded-lg shadow-xl m-5">
+          <form class="bg-transparent rounded-lg shadow-xl m-5">
 
             <div class="">
                     <div class="px-6" uk-grid>
@@ -34,7 +34,7 @@
 
                         <div class="flex justify-center">
                             <label for="species"></label>
-                            <input class="dashboard-inputs" placeholder="Species" id="species" name="species" value={{pet.species}}/>
+                            <input class="dashboard-inputs" placeholder="Species" id="species" name="species" value="{{pet.species}}" />
                         </div>
                         
                         <div class="flex justify-center">
@@ -65,7 +65,7 @@
                         <span class="uk-text-middle">Update your pet's photo here!</span>
                         <div uk-form-custom>
                             <form encType="multipart/form-data" action="">
-                                <input id="img-input" type="file" multiple />
+                                <input id="img-input" type="file" value="{{pet.pic_filename}}" multiple />
                             </form>
                             <span class="uk-link text-sky-500">selecting one</span>
                         </div>

@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt');
 class Pet extends Model {
   static addFave(body, models) {
       return models.Fave.create({
-          owner_id: body.owner_id,
+          user_id: body.user_id,
           pet_id: body.pet_id
       }).then(() => {
           return Pet.findOne({

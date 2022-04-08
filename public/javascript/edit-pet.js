@@ -5,7 +5,6 @@ var sendImg;
 function convert() {
 
   let newImage = URL.createObjectURL(img.files[0])
-  // runFetch(newImage);
   var xhr = new XMLHttpRequest;
   xhr.responseType = 'blob';
 
@@ -31,7 +30,7 @@ function convert() {
 async function editFormHandler(event) {
     event.preventDefault();
   
-    const petName = document.getElementById('pet-name').value.trim();
+    const pet_name = document.getElementById('pet-name').value.trim();
     const species = document.getElementById('species').value;
     const breed = document.getElementById('breed').value;
     const size = document.getElementById('size').value;
@@ -48,7 +47,7 @@ async function editFormHandler(event) {
     const response = await fetch(`/api/pets/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
-        petName, species, breed, size, age, bio, pic_filename
+        pet_name, species, breed, size, age, bio, pic_filename
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -71,7 +70,7 @@ async function editFormHandler(event) {
     return document.getElementById('test-id').setAttribute('src', imgPrev);
   }
   
-  document.getElementById('edit-pet').addEventListener('submit', editFormHandler);
+  document.getElementById('edit-pet').addEventListener('click', editFormHandler);
   document.getElementById('img-input').addEventListener('change', convert);
 
   

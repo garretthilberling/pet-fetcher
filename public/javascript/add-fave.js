@@ -1,16 +1,16 @@
-function toggleHeartColor(event) {
-    event.preventDefault();
-
-    document.getElementById('heart').classList.toggle('.text-red-500');
+function checkCount() {
+    var faveCount = document.getElementById('fave-count');
+    if(faveCount) {
+        document.getElementById('heart').classList.add('text-red-500', 'hover:text-red-400');
+    }
 }
 
 async function addFaveClickHandler(event) {
     event.preventDefault();
 
+    document.getElementById('heart').classList.toggle('text-red-500');
 
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
+    const id = document.getElementById('get-id').value;
 
     const response = await fetch('/api/pets/addFave', {
         method: 'PUT',
@@ -29,5 +29,6 @@ async function addFaveClickHandler(event) {
     }
 }
 
+checkCount();
+
 document.getElementById('addFave-btn').addEventListener('click', addFaveClickHandler);
-document.getElementById('addFave-btn').addEventListener('click', toggleHeartColor);
