@@ -88,7 +88,7 @@ router.get("/pet/:id", (req, res) => {
       const pet = dbPetData.get({ plain: true });
 
       //pass data to template
-      res.render("single-post", {
+      res.render("single-pet", {
         user: req.session.username,
         pet,
         loggedIn: req.session.loggedIn,
