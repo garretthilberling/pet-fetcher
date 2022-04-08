@@ -110,7 +110,6 @@ router.put('/:id', (req, res) => {
             user_id: req.body.user_id
         },
         {
-            individualHooks: true,
             where: {
                 id: req.params.id
             }
