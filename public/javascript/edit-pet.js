@@ -30,7 +30,7 @@ function convert() {
 async function editFormHandler(event) {
     event.preventDefault();
   
-    const petName = document.getElementById('pet-name').value.trim();
+    const pet_name = document.getElementById('pet-name').value.trim();
     const species = document.getElementById('species').value;
     const breed = document.getElementById('breed').value;
     const size = document.getElementById('size').value;
@@ -47,7 +47,7 @@ async function editFormHandler(event) {
     const response = await fetch(`/api/pets/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
-        petName, species, breed, size, age, bio, pic_filename
+        pet_name, species, breed, size, age, bio, pic_filename
       }),
       headers: {
         'Content-Type': 'application/json'
