@@ -19,6 +19,7 @@ router.get("/", withAuth, (req, res) => {
       "breed",
       "size",
       "age",
+      "pic_filename",
       "created_at",
       [
         sequelize.literal(
