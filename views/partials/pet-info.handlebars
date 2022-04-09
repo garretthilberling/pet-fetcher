@@ -1,19 +1,19 @@
 <div
-  class="uk-height-large rounded-t-lg uk-card uk-card-default uk-card-body text-indigo-50 bg-gradient-to-b from-indigo-500 to-indigo-800 mx-3"
+  class="uk-height-large rounded-lg uk-card uk-card-default uk-card-body text-indigo-50 bg-gradient-to-b from-indigo-500 to-blue-300 mx-3"
 >
 <input id="get-id" value="{{id}}" class="invisible"/>
 <div class="uk-transition-toggle" tabindex="0">
             <img class="uk-position-center uk-preserve-width uk-responsive-height uk-object-scale-down" src="{{pic_filename}}" width="auto" height="auto" alt="">
-            <div class="uk-transition-slide-left uk-position-top uk-overlay uk-overlay-default">
+            <div class="uk-transition-slide-left uk-position-top uk-overlay uk-overlay-default rounded-lg">
                 <p class="uk-h4 uk-margin-remove">{{bio}}</p>
             </div>
         </div>
-  <div class="uk-position-bottom bg-indigo-700 p-8">
-
-    <div class="relative">
+  
+  <div class="uk-position-bottom bg-indigo-700 p-8 rounded-b-lg">
+    <div class="pt-3 relative">
       <div class="absolute bottom-0">
           <div class="flex flex-row items-center justify-between flex-wrap">
-            <div class="card-title "> 
+            <div class="card-title"> 
                 <a href="/pet/{{id}}" class="font-semibold text-sky-500 hover:text-sky-400 hover:no-underline text-xl">
                   {{user.username}}
                 </a>
@@ -23,7 +23,7 @@
           </div>
         <div><span class="font-semibold text-blue-300">Name:
           </span>{{pet_name}}</div>
-        <div class="uk-grid-small" uk-grid>
+        <div class="uk-grid-small mr-3 pr-3 uk-width-3-3@m" uk-grid>
           <div><span class="font-semibold text-blue-300">Species:
             </span>{{species}}</div>
           <div><span class="font-semibold text-blue-300">Breed:
@@ -33,17 +33,22 @@
           <div><span class="font-semibold text-blue-300">Age: </span>{{age}}</div>
         </div>
       </div>
-
-      <div class="flex flex-col uk-flex-bottom justify-end">
-        <div class="pb-1">
-            <span id="fave-count" class="text-indigo-50 pr-2 text-xl py-1">{{fave_count}}</span><button id="addFave-btn"><i id="heart" class="fa-solid fa-heart text-3xl"></i></button>
-        </div>
-        <div class="pt-1">
-          <a
-            href="/pet/{{id}}"
-            class="hover:text-indigo-200 hover:no-underline" uk-icon="icon: comments; ratio: 1.5"></a>
+      <div class="flex justify-end">
+        <div class="uk-grid-divider uk-grid-column-small justify-center"uk-grid>
+          <div class="">
+            <div class="pb-1">
+                <span id="fave-count" class="text-indigo-50 pr-2 text-xl py-1">{{fave_count}}</span><button id="addFave-btn"><i id="heart" class="fa-solid fa-heart text-3xl"></i></button>
+            </div>
+            <div class="pt-1">
+              <span id="fave-count" class="text-indigo-50 pr-4 text-xl py-2"></span>
+              <a
+                href="/pet/{{id}}"
+                class="hover:text-indigo-200 hover:no-underline" uk-icon="icon: comments; ratio: 1.5"></a>
+            </div>
+          </div>
         </div>
       </div>
+
 
     </div>
   </div>

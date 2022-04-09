@@ -753,10 +753,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-gradient-to: #4f46e5;
 }
 
-.to-indigo-800 {
-  --tw-gradient-to: #3730a3;
-}
-
 .p-5 {
   padding: 1.25rem;
 }
