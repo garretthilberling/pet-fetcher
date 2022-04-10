@@ -1,3 +1,9 @@
+var idArr = [];
+document.querySelectorAll('.get-id').forEach(function(id) {
+    idArr.push(Number(id.value))
+});
+console.log(idArr);
+
 async function addFaveClickHandler(event) {
     event.preventDefault();
     const id = this.id;
@@ -19,4 +25,6 @@ async function addFaveClickHandler(event) {
     }
 }
 
-document.querySelector('.addFave-btn').addEventListener('click', addFaveClickHandler);
+for(var i = 0; i < idArr.length; i++) {
+    document.querySelector(`.addFave-btn-${idArr[i]}`).addEventListener('click', addFaveClickHandler);
+}
