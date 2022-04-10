@@ -1,16 +1,6 @@
-function checkCount() {
-    var faveCount = document.getElementById('fave-count');
-    if(faveCount) {
-        document.getElementById('heart').classList.add('text-red-500', 'hover:text-red-400');
-    }
-}
-
 async function addFaveClickHandler(event) {
     event.preventDefault();
-
-    document.getElementById('heart').classList.toggle('text-red-500');
-
-    const id = document.getElementById('get-id').value;
+    const id = this.id;
 
     const response = await fetch('/api/pets/addFave', {
         method: 'PUT',
@@ -29,6 +19,4 @@ async function addFaveClickHandler(event) {
     }
 }
 
-checkCount();
-
-document.getElementById('addFave-btn').addEventListener('click', addFaveClickHandler);
+document.querySelector('.addFave-btn').addEventListener('click', addFaveClickHandler);
