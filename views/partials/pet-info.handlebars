@@ -10,9 +10,9 @@
         </div>
   
   <div class="uk-position-bottom bg-indigo-700 p-8 rounded-b-lg">
-    <div class="pt-3 relative">
-      <div class="absolute bottom-0">
-          <div class="flex flex-row items-center justify-between flex-wrap">
+    <div class="relative">
+        <div class="absolute">
+          <div class="flex items-center justify-between flex-wrap">
             <div class="card-title"> 
                 <a href="/pet/{{id}}" class="font-semibold text-sky-500 hover:text-sky-400 hover:no-underline text-xl">
                   {{user.username}}
@@ -21,18 +21,18 @@
               {{format_date created_at}}
             </div>
           </div>
-        <div><span class="font-semibold text-blue-300">Name:
-          </span>{{pet_name}}</div>
-        <div class="uk-grid-small mr-3 pr-3 uk-width-3-3@m" uk-grid>
-          <div><span class="font-semibold text-blue-300">Species:
-            </span>{{species}}</div>
-          <div><span class="font-semibold text-blue-300">Breed:
-            </span>{{breed}}</div>
-          <div><span class="font-semibold text-blue-300">Size:
-            </span>{{size}}</div>
-          <div><span class="font-semibold text-blue-300">Age: </span>{{age}}</div>
-        </div>
-      </div>
+          <div class="grid grid-cols-3 gap-x-2">
+              <div><span class="font-semibold text-blue-300">Name:
+                </span>{{pet_name}}</div>
+              <div><span class="font-semibold text-blue-300">Species:
+                </span>{{species}}</div>
+              <div><span class="font-semibold text-blue-300">Breed:
+                </span>{{breed}}</div>
+              <div><span class="font-semibold text-blue-300">Size:
+                </span>{{size}}</div>
+              <div><span class="font-semibold text-blue-300">Age: </span>{{age}}</div>
+          </div>
+    </div>
       <div class="flex justify-end">
         <div class="uk-grid-divider uk-grid-column-small justify-center"uk-grid>
           <div class="">
