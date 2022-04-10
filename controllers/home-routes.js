@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
     include: [
       {
         model: User,
-        attributes: ["username"],
+        attributes: ["username", "phone", "email"],
       },
     ],
   })
@@ -75,7 +75,7 @@ router.get("/pet/:id", (req, res) => {
       },
       {
         model: User,
-        attributes: ["username"],
+        attributes: ["username", "phone", "email"],
       },
     ],
   })
