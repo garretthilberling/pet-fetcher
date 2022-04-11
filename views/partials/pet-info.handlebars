@@ -37,13 +37,13 @@
         <div class="uk-grid-divider uk-grid-column-small justify-center"uk-grid>
           <div class="">
             <div class="pb-1">
-                <span id="fave-count" class="text-indigo-50 pr-2 text-xl py-1">{{fave_count}}</span><button id="{{id}}" class="addFave-btn-{{id}}"><i id="heart" class="fa-solid fa-heart text-3xl hover:text-indigo-200"></i></button>
+                <span id="fave-count" class="text-indigo-50 pr-2 text-xl py-1">{{fave_count}}</span><button id="{{id}}" class="addFave-btn-{{id}}"><i id="heart" class="fa-solid fa-heart text-3xl opacity-75 hover:opacity-100"></i></button>
             </div>
             <div class="pt-1">
               {{!-- <span id="fave-count" class="text-indigo-50 pr-4 text-xl py-2"></span> --}}
               <a
                 href="/pet/{{id}}"
-                class="hover:text-indigo-200 hover:no-underline" uk-icon="icon: comments; ratio: 1.5"></a>
+                class="opacity-75 hover:opacity-100 hover:text-indigo-50 hover:no-underline" uk-icon="icon: comments; ratio: 1.5"></a>
             </div>
           </div>
         </div>
