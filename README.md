@@ -17,10 +17,12 @@ Search our database for available pets, or list your pet for adoption so others 
 The languages and technologies used to build this full-stack application are: JavaScript, ES6, MySQL, mysql2, Sequelize, bcrypt, express, express-handlebars, express-session, connect-session-sequelize, body-parser, CSS, Tailwind CSS, UIKit, & the implementation of the MVC file structure.
 
 ## Usage
-Simply create an account and post your furry friend! Feel free to leave a comment and like other users' posts!
+Simply create an account and post your furry friend! Feel free to leave a comment and like other users' posts! 
 
 
-# <img src="./public/img/application-screenshot.PNG?raw=true" width="700">
+<img src="./public/img/application-screenshot.PNG?raw=true" width="500"> <img src="./public/img/application-screenshot-2.PNG?raw=true" width="500">
+
+When a pet is selected you are taken to a page that displays the contact information of the user who listed that pet. Users handle sales directly! (Think ex: Craigslist)
 
 ## Installation
 No installation required! Access via the deployed Heroku URL: https://pet-fetcher.herokuapp.com/
