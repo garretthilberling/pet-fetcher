@@ -22,7 +22,7 @@ Simply create an account and post your furry friend! Feel free to leave a commen
 
 <img src="./public/img/application-screenshot.PNG?raw=true" width="500"> <img src="./public/img/application-screenshot-2.PNG?raw=true" width="500"> 
 
-When a pet is selected you are taken to a page that displays the contact information of the user who listed that pet. Users handle sales directly! (Think ex: Craigslist). You can upload a JPG or PNG of your furry friend by navigating to the dashboard (only available to logged-in users). 
+When a pet is selected you are taken to a page that displays the contact information of the user who listed that pet. Users handle sales directly! (Think ex: Craigslist). You can upload a JPG or PNG of your furry friend by navigating to the dashboard at the top of the page (only available to logged-in users). 
 
 <img src="./public/img/application-screenshot-3.PNG?raw=true" width="500"> <img src="./public/img/application-screenshot-4.PNG?raw=true" width="500">
 
